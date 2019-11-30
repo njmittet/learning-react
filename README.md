@@ -1,6 +1,8 @@
 # learning-react
 Notes and code written while learning React and Redux.
 
+Serve the example files (in `.public/`) by executing `npx light-server -s public -p 8080  -w "public/**"` from the command line.
+
 ## Notes
 [React and Redux](notes/ReactRedux.md) code examples created while learning from sources like [freeCodeCamp.org](https://www.freecodecamp.org/learn/).
 
