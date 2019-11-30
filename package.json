@@ -1,0 +1,16 @@
+{
+  "name": "learning-react",
+  "version": "1.0.0",
+  "description": "Notes and code written while learning JavaScript (ES6), React and Redux.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Nils Jørgen Mittet",
+  "license": "MIT",
+  "dependencies": {},
+  "devDependencies": {
+    "eslint": "^6.7.1",
+    "eslint-plugin-react": "^7.17.0"
+  }
+}
