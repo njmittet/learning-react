@@ -14,12 +14,12 @@ $ npm start
 # Roadmap
 The points in the list below will removed when implemented.
 
-## JavaScript
-[Introduction to ES6+](https://scrimba.com/g/gintrotoes6).
-[Learn modern JavaScript](https://scrimba.com/g/ges6).
-
 ### Basic React
 [Add React to a Website](https://reactjs.org/docs/add-react-to-a-website.html)
+[Creating a Toolchain from Scratch](https://blog.usejournal.com/creating-a-react-app-from-scratch-f3c693b84658)
+
+### Webpack
+[Webpack Getting Started](https://webpack.js.org/guides/getting-started)
 
 ## React+Redux Notes
 
@@ -65,6 +65,8 @@ https://github.com/reduxjs/redux-toolkit
 ### NextJS
 [The Next.js Handbook](https://www.freecodecamp.org/news/the-next-js-handbook/).
 [Learn the Redux Architecture by Creating the Minimal TODO App on top of NEXT.js](https://dev.to/saltyshiomix/learn-the-redux-architecture-by-creating-the-minimal-todo-app-on-top-of-next-js-5bpj).
+
+https://reactjs.org/docs/create-a-new-react-app.html#nextjs
 
 ### Scrimba
 [Scribma Learn React](https://scrimba.com/g/glearnreact)
