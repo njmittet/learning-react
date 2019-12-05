@@ -1,6 +1,6 @@
 # Roadmap
 
-Task and resources are moved to the [Completed](Completed.md) file when implemented or tested.
+Task and resources are moved to the [Completed](completed.md) file when implemented or tested.
 
 ## Examples
 
@@ -10,7 +10,7 @@ Task and resources are moved to the [Completed](Completed.md) file when implemen
 2. [Creating a Toolchain from Scratch](https://blog.usejournal.com/creating-a-react-app-from-scratch-f3c693b84658)
 
 ## React + Redux
-Resouces used to extend the [React + Redux](ReactRedux.md) notes.
+Resouces used to extend the [React + Redux](react-redux.md) notes.
 
 ### General
 1. Alternative notation for mapDispatchToProps(): [CodePen ReactRedux Example](https://codepen.io/team/codepen/pen/yZrxJo).
