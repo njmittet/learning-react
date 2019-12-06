@@ -214,3 +214,39 @@ const found = numbers.includes(0);
 const found = numbers.indexOf(0) != -1;
 ```
 Mozilla documentation: [Array.prototype.includes()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/includes).
+
+### Let & Const
+The `let` and `const` keywords exists because of the behaviour of the older `var` keyword. They allow declaring variables limited to a scope of a block statement or the expression in which it is used, unlike the `var` keyword, which defines a variable globally, or locally to an entire function regardless of block scope. `let` and `const` does do not become properties of the window object, even when declared globally.
+
+* The `let` statement declares a block scope local variable, optionally initializing it to a value.
+* The value of a `const` can't be changed through reassignment, and it can't be redeclared. It is a read-only reference to a value, but it does not mean the value it holds is immutable.
+```JS
+
+// Primitive types declared with "const" can not be changed.
+const example = 5;
+example = 10;
+console.log(example) // Error: SyntaxError: unknown: "example" is read-only
+
+// Only the "const" reference is immutable, hence objects can be changed.
+const example = [];
+example.push(5)
+console.log(example)
+
+// Variables declared with "var" starts with the value "undefined". 
+// "let" variables are not initialized until their definition 
+// is evaluated. Accessing the variable before the initialization
+// results in a ReferenceError. 
+function myFunction() {
+  console.log(bar); // undefined
+  console.log(foo); // ReferenceError
+  var bar = 1;
+  let foo = 2;
+}
+```
+Mozilla documentation: [let](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/let).    
+Mozilla documentation: [const](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/const).
+
+### Import & Export
+```JS
+
+```
