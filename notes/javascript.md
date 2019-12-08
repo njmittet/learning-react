@@ -246,7 +246,60 @@ function myFunction() {
 Mozilla documentation: [let](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/let).    
 Mozilla documentation: [const](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/const).
 
-### Import & Export
-```JS
+### Import
+The `import` statement is used to import bindings exported by another module or file. 
 
+Imported modules are always in strict mode.
+
+The `import` statement cannot be used in embedded scripts unless such script has a type="module". 
+
+The `module-name` in the below code exampels are either a relative or absolute path name to the `.js` file containing the module. Bundlers may or may not require the use of the extension.
+```JS
+// Import the default export from a module. 
+import export from 'module-name';
+
+// Import one or more not-default exports from a module.
+import { export1, export2 } from 'module-name';
+
+// The * inserts a module into the current scope, allowing 
+// usage of the module name as a namespace.
+import * as myModule from 'module-name';
+myMOdule.callMyMethod();
+
+
+// Imports can be renamed.
+import { longModuleName as module } from 'module.name';
 ```
+Mozilla documentation: [import](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import).    
+
+
+### Export
+The `import` statement is used to import bindings exported by another module or file. 
+
+The `export statement` is used to export functions, objects, or primitive values from a module so they can be used by other programs with the `import` statement.
+
+Exported modules are always in strict mode.
+
+There are two different types of export, `named` and `default`. 
+A module can have multiple named exports but only one default export.
+
+```JS
+// Export already declared features as names exports. 
+// Renaming is supported while exporting.
+export { myFunction, myVariable as variabel }; 
+
+// Export features as named exports.
+export let myVariable = Math.sqrt(2);
+export function myFunction() { ... };
+
+// Export already declared feature as default.
+export { myFunction as default };
+
+// Export features as default.
+export default myFunction() { ... } 
+export default class { .. }
+
+// It's possible to export features from a parent module.
+export foo from 'module-name';
+```
+Mozilla documentation: [export](https://developer.mozilla.org/en-US/docs/web/javascript/reference/statements/export).    
