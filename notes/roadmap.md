@@ -2,6 +2,10 @@
 
 Task and resources are moved to the [Completed](completed.md) file when implemented or tested.
 
+# Notes
+1. [Introduction to ES6+](https://scrimba.com/g/gintrotoes6)
+2. [Learn modern JavaScript](https://scrimba.com/g/ges6)
+
 ## Examples
 
 ### Toolchain
@@ -41,6 +45,8 @@ Resouces used to extend the [React + Redux](react-redux.md) notes.
 1. [Clean Up Redux Code with React-Redux Hooks](https://medium.com/swlh/clean-up-redux-code-with-react-redux-hooks-71587cfcf87a)    
 2. [How I reduced the code in my Redux app by using Redux Hooks](https://medium.com/javascript-in-plain-english/how-i-reduced-the-amount-of-code-in-my-redux-app-by-using-redux-hooks-b19c926419ea)
 
+## Miscellaneous
+
 ### Redux Toolkit
 1. https://redux-starter-kit.js.org/    
 2. https://github.com/reduxjs/redux-toolkit
@@ -51,22 +57,23 @@ Resouces used to extend the [React + Redux](react-redux.md) notes.
 
 ### NextJS
 1. https://reactjs.org/docs/create-a-new-react-app.html#nextjs
-2. [Learn the Redux Architecture by Creating the Minimal TODO App on top of NEXT.js](https://dev.to/saltyshiomix/learn-the-redux-architecture-by-creating-the-minimal-todo-app-on-top-of-next-js-5bpj).
-3. [The Next.js Handbook](https://www.freecodecamp.org/news/the-next-js-handbook/).
+2. [Learn the Redux Architecture by Creating the Minimal TODO App on top of NEXT.js](https://dev.to/saltyshiomix/learn-the-redux-architecture-by-creating-the-minimal-todo-app-on-top-of-next-js-5bpj)
+3. [The Next.js Handbook](https://www.freecodecamp.org/news/the-next-js-handbook/)
 
 ### Scrimba
-1. [Scribma Learn React](https://scrimba.com/g/glearnreact)
+1. [Scrimba Learn React](https://scrimba.com/g/glearnreact)
+2. [The React Bootcamp](https://scrimba.com/g/greact)
 
 ### Examples
-1. [Explore predictable and scalable state management in React with Redux](https://www.robinwieruch.de/react-redux-tutorial)   
+1. [Explore predictable and scalable state management in React with Redux](https://www.robinwieruch.de/react-redux-tutorial)
 2. [Connect React to a Database and implement User Authentication/Authorization](https://www.robinwieruch.de/complete-firebase-authentication-react-tutorial)
 
 ## Angular
-1. [Build your first Angular app](https://scrimba.com/g/gyourfirstangularapp).
-2. [Getting Started with Angular: Your First App](https://angular.io/start).
+1. [Build your first Angular app](https://scrimba.com/g/gyourfirstangularapp)
+2. [Getting Started with Angular: Your First App](https://angular.io/start)
 
 ## CSS
 
 ### Flexbox / Grid
-1. [Learn Flexbox for free](https://scrimba.com/g/gflexbox).
-2. [Learn CSS Grid for free](https://scrimba.com/g/gflexbox).
+1. [Learn Flexbox for free](https://scrimba.com/g/gflexbox)
+2. [Learn CSS Grid for free](https://scrimba.com/g/gflexbox)
