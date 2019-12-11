@@ -303,3 +303,20 @@ export default class { .. }
 export foo from 'module-name';
 ```
 Mozilla documentation: [export](https://developer.mozilla.org/en-US/docs/web/javascript/reference/statements/export).    
+
+### padStart() & padEnd()
+The `padStart()` method pads the start of the current string with a given string (repeated, if needed) until the string reaches a given length. `padEnd()` similarly pads the end of the string.
+
+```JS
+// Use padStart() to mask all but the two last digits of a phone number.
+const phoneNumber = '22002201';
+const lastTwo = phoneNumber.slice(-2);
+const maskedNumber = lastTwo.padStart(phoneNumber.length, '*');
+
+// Use padEnd() to mask all but the two first digits of a phone number.
+const phoneNumber = '22330033';
+const firstTwo = phoneNumber.slice(0, 2);
+const maskedNumber = firstTwo.padEnd(phoneNumber.length, '*');
+```
+Mozilla documentation: [String.prototype.padStart()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/padStart).    
+Mozilla documentation: [String.prototype.padEnd()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/padEnd).    
