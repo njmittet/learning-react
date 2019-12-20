@@ -3,9 +3,10 @@
 This file contains a selection of React and Redux examples created while learning from different sources.
 
 ## Sources
-[freeCodeCamp.org/React](https://www.freecodecamp.org/learn/front-end-libraries/react/)    
-[freeCodeCamp.org/Redux](freecodecamp.org/learn/front-end-libraries/redux/)    
-[freeCodeCamp.org/React+Redux](https://www.freecodecamp.org/learn/front-end-libraries/react-and-redux/)    
+
+[freeCodeCamp.org/React](https://www.freecodecamp.org/learn/front-end-libraries/react/)  
+[freeCodeCamp.org/Redux](freecodecamp.org/learn/front-end-libraries/redux/)  
+[freeCodeCamp.org/React+Redux](https://www.freecodecamp.org/learn/front-end-libraries/react-and-redux/)  
 
 ## React
 
@@ -25,6 +26,7 @@ import App from './components/App'
 ```
 
 ### Rendering
+
 Use ReactDom to render the React component.
 
 ```HTML
@@ -58,6 +60,7 @@ class MyComponent extends React.Component {
   }
 }
 ```
+
 ### Passing State as Props
 
 Passing state as props to a child component.
@@ -91,7 +94,7 @@ class MyComponent extends React.Component {
 
 ### Default Props & PropTypes
 
-React provides useful type-checking features to verify that components receive props of the correct type. 
+React provides useful type-checking features to verify that components receive props of the correct type.
 
 ```JSX
 import React, { PropTypes } from 'react';
@@ -112,7 +115,7 @@ Items.defaultProps = {
 
 ### Passing Callbacks as Props
 
-Passing a handler functions to a child component allows the child component to interact with their parent component. 
+Passing a handler functions to a child component allows the child component to interact with their parent component.
 
 ```JSX
 class MyComponent extends React.Component {
@@ -190,9 +193,10 @@ class MyComponent extends React.Component {
   }
 }
 ```
+
 ### Inlince CSS Styles
 
-Inline CSS can be altered programmatically. 
+Inline CSS can be altered programmatically.
 
 ```JSX
 const fontStyle = {
@@ -228,6 +232,7 @@ class MyComponent extends React.Component {
 ```
 
 ### Controlled Input
+
 Form control elements like `input` and `textarea` maintain their own state in the DOM. With React, the state can be moved into a React component's state. React will control the value of the input field, and the input becomes part of the application state. When typing in input field, the text is processed by the handleChange() method and set as the "input" property in the local state before being rendered as the value in the input box on the page. The component state becomes the single source of truth for the input value.
 
 ```JSX
@@ -301,7 +306,7 @@ class MyComponent extends React.Component {
 
 ### Manage Updates with Lifecycle Methods
 
-React components have several special methods that provide opportunities to perform actions at specific points in the life cycle of a component. These are called life cycle methods, or life cycle hooks, and allow you to catch components at certain points in time; 
+React components have several special methods that provide opportunities to perform actions at specific points in the life cycle of a component. These are called life cycle methods, or life cycle hooks, and allow you to catch components at certain points in time;
 
 Mounting and rendering are considered different things in the component life cycle. When a page first loads, components are mounted before being rendered. The former is where the methods componentWillMount() and componentDidMount() are called. After mounting, all state changes will trigger a re-render of the components.
 
@@ -331,7 +336,7 @@ class MyComponent extends React.Component {
   // Setting the state with data from an API-call will automatically trigger an update once you
   // receive the data.
   componentDidMount() {
-  	// The timeout simulates a back end call.
+  // The timeout simulates a back end call.
     setTimeout( () => {
       this.setState({
         activeUsers: 1273
@@ -343,7 +348,7 @@ class MyComponent extends React.Component {
   }
   
   // It's good practice to use this life cycle method to do any clean up of React
-  // components before they are unmounted and destroyed. 
+  // components before they are unmounted and destroyed.
   componentWillUnmount() {
     document.removeEventListener("keydown", this.handleKeyPress)
   }
@@ -384,22 +389,24 @@ class MyComponent extends React.Component {
 ```
 
 ## Redux
+
 Redux is a state management framework that can be used with a number of different web technologies, including standalone or with React (or other frameworks).
 
-### Creating and Using a Redux Store 
+### Creating and Using a Redux Store
+
 Redux provides a single state object that's responsible for the entire application state. All React components in a Redux app will use the same Redux store to manage the application state.
 
 ```JSX
-// Reducer functions are used to let Redux know how to respond to dispatched actions. 
-// A reducer takes state as argument and returns a new state. This is the reducers only job. 
-// It has no other side effects. 
+// Reducer functions are used to let Redux know how to respond to dispatched actions.
+// A reducer takes state as argument and returns a new state. This is the reducers only job.
+// It has no other side effects.
 const reducer = (state = 5) => {
   return state;
 }
 
-// The method createStore() is used to to create the Redux store. The method takes a reducer 
-// function as a required argument. The Redux state is read-only, hence the reducer must a 
-// copy of the state and never modify it directly. Redux does not enforce state immutability, 
+// The method createStore() is used to to create the Redux store. The method takes a reducer
+// function as a required argument. The Redux state is read-only, hence the reducer must a
+// copy of the state and never modify it directly. Redux does not enforce state immutability,
 // making it the responsibility of the developer creating the reducer functions.
 const store = Redux.createStore(reducer);
 
@@ -409,7 +416,7 @@ const currentState = store.getState();
 
 ### Combine Multiple Reducers
 
-Redux provides reducer composition as a solution to having a complex state model. 
+Redux provides reducer composition as a solution to having a complex state model.
 
 ```JSX
 const rootReducer = Redux.combineReducers({
@@ -421,7 +428,8 @@ const store = Redux.createStore(rootReducer);
 ```
 
 ### Actions
-Updating state is one of the Redux core tasks. All state updates are triggered by dispatching actions. An action is a JavaScript object that contains information about an action event that has occurred. The store receives the action objects and updates the state accordingly. 
+
+Updating state is one of the Redux core tasks. All state updates are triggered by dispatching actions. An action is a JavaScript object that contains information about an action event that has occurred. The store receives the action objects and updates the state accordingly.
 
 ```JSX
 // It is common practice to assign action types to read-only constants.
@@ -477,6 +485,7 @@ const messageReducer = (state = [], action) => {
 ```
 
 ### redux-thunk Middleware
+
 Redux provides a [middleware](https://redux.js.org/advanced/middleware) designed specifically for allowing asynchronous calls to backend endpoints called [Redux Thunk](https://github.com/reduxjs/redux-thunk).
 
 ```JSX
@@ -543,6 +552,7 @@ store.dispatch(handleAsync);
 ```
 
 ## Redux with React
+
 Because Redux is not designed to work with React out of the box, it's necessary to use the `react-redux` package. It provides a for passing Redux `state` and `dispatch` to React components as props.
 
 ### Connect Redux And React With react-redux
@@ -550,7 +560,7 @@ Because Redux is not designed to work with React out of the box, it's necessary 
 A `Provider` is a wrapper component from react-redux that wraps your React app. It allows access the Redux store and the dispatch functions throughout the component tree. It takes two props; the Redux store and the app child components.
 
 ```JSX
-// react-redux is available as a global variable, allowing accessing the Provider 
+// react-redux is available as a global variable, allowing accessing the Provider
 // using dot notation.
 const Provider = ReactRedux.Provider;
 
@@ -570,6 +580,7 @@ class MyComponent extends React.Component {
 ```
 
 ### Map state and dispatch to Props
+
 The Provider component allows providing state and dispatch to your React components, but the exact state and actions must be specified in order make sure that each component only has access to what it needs. The methods `mapStateToProps()` and `mapDispatchToProps()` are used to accomplish this. Use the methods to declare the state a component should have access to and which action creators it should be able to dispatch. Behind the scenes, react-redux uses the `store.subscribe()` method to implement `mapStateToProps()`.
 
 ```JSX
@@ -608,7 +619,7 @@ function mapDispatchToProps(dispatch) {
 
 ### Connect Redux to React using connect()
 
-Once the `mapStateToProps()` and `mapDispatchToProps()` methods are in place, the react-redux `connect()` method can be used to to connect them to components. 
+Once the `mapStateToProps()` and `mapDispatchToProps()` methods are in place, the react-redux `connect()` method can be used to to connect them to components.
 
 The `MyComponent` component is a presentation component, meaning it is not directly connected to Redux. It is simply responsible for the presentation of UI and do this as a function of the props they receive. By contrast, container components are connected to Redux, and are typically responsible for dispatching actions to the store and pass store state to child (presentational) components as props.
 
@@ -679,7 +690,7 @@ ReactDOM.render(<MyComponent />, document.querySelector("#root"));
 
 ### Using React.createRef()
 
-In a typical React data flow, props are the way that parent components interact with their children. To modify a child, re-render it with new props. However, there are a few cases where you need to imperatively modify a child outside of React data flow. The child to be modified could be an instance of a React component, or a DOM element. 
+In a typical React data flow, props are the way that parent components interact with their children. To modify a child, re-render it with new props. However, there are a few cases where you need to imperatively modify a child outside of React data flow. The child to be modified could be an instance of a React component, or a DOM element.
 
 [Refs](https://reactjs.org/docs/refs-and-the-dom.html) are created using `React.createRef()` and provides a way to access DOM nodes or React elements created in the render method. Refs are commonly assigned to an instance property when a component is constructed so they can be referenced throughout the component.
 

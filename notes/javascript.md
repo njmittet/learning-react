@@ -1,7 +1,9 @@
 # JavaScript Notes
+
 This file contains implementation of of the most important ES6+ examples and challenges from the [Scrimba](https://scrimba.com/) courses [Learn modern JavaScript](https://scrimba.com/g/ges6) and [Introduction to ES6+](https://scrimba.com/g/gintrotoes6).
 
 ## Template Literals (Template Strings)
+
 Template literals are string literals allowing embedded expressions and honors whitepace and line breaks, allowing multi-line strings and string interpolation. Template literals are enclosed by the back-tick  (\` \`).
 
 ```JS
@@ -19,20 +21,20 @@ ${lastName}`)
 // Expression interpolation
 console.log(`${num1 + num2}`)
 ```
-Mozilla documentation: [Template Literals](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals).
+
+Mozilla [Template Literals](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals) documentation.
 
 ## Enhanced Object Literals
 
-ES6 enhances declaration of object literals by adding: 
+ES6 enhances declaration of object literals by adding:
 
 * Adding shorthand for object initializing from variables by removing repetition when variable names and object prperties are equal.
 * Adding shorthand for writing methods in (and returned from) objects.
 * Introducing computation of property names.
 
 ```JS
-// Checking if a property key has a corresponding variable name and assigns the value 
-// of that variable to the property. 
-// Instead of: return {make: make, model: model}
+// Checking if a property key has a corresponding variable name and assigns the value
+// of that variable to the property. Instead of: return {make: make, model: model}.
 function makeObject(make, model) {
     return {
         make,
@@ -61,7 +63,7 @@ const laptop = {
 
 console.log(object.make1);
 
-// Object literals does not only detect function parameters. 
+// Object literals does not only detect function parameters.
 function makeAddress(address) {
 
     const { city, state } = address;
@@ -72,6 +74,7 @@ function makeAddress(address) {
 }
 
 ```
+
 Read more: [Enhanced Object Literals](https://dev.to/sarah_chima/enhanced-object-literals-in-es6-a9d).
 
 ## Destructuring Assignment
@@ -79,6 +82,7 @@ Read more: [Enhanced Object Literals](https://dev.to/sarah_chima/enhanced-object
 Destructuring assignment allows unpacking of values from arrays, objects, maps and sets into distinct variables using syntax that looks similar to array or object literals.
 
 ### Destructuring Objects
+
 ```JS
 const person = {
     firstName: 'Firstname',
@@ -104,9 +108,11 @@ console.log(`${fn} ${ln}`)
     lastName = 'Reset'
     console.log(`${firstName} ${lastName}`)
 ```
-Mozilla documentation: [Destructuring Assignment](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment).
 
-## Enhanced for-loop (for-of loop).
+Mozilla [Destructuring Assignment](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment) documentation.
+
+## Enhanced for-loop (for-of loop)
+
 The `for...of` statement creates a loop iterating over iterable objects, (e,g arrays strings, maps and sets).
 
 ```JS
@@ -114,21 +120,24 @@ const numbers = [100, 200, 300];
 let total = 0;
 for (const number of numbers) {
     total += number;
-}    
+}
 
  // Updating the values of the iterable is not allowed.
  for (let number of numbers) {
     number += 10
     total += number;
-} 
+}
 
 ```
-Mozilla documentation: [for...of](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for...of).
+
+Mozilla [for...of](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for...of) documentation.
 
 ### The Spread Syntax
+
 The spread syntax (`...`) allows an iterable such as an array expression or string to be expanded in places where zero or more arguments (function calls) or elements (array literals) are expected.
+
 ```JS
-// Copies values from one array to another by value.    
+// Copies values from one array to another by value.
 const numbers = [1, 2, 3];
 const numbersCopy = [...numbers1];
 
@@ -142,7 +151,7 @@ function sum(x, y, z) {
 
 const result = sum(...[1, 2, 3]);
 
-// Creating a new array from the values of the original array, while adding new elements at the same time. 
+// Creating a new array from the values of the original array, while adding new elements at the same time.
 const moreNumbers = [...numbers, 5, 6];
 
 // The spread syntax can also be used on and inside objects (from ECMAScript 2018).
@@ -151,14 +160,16 @@ let person1 = {
 };
 
 let person2 = {
-    // A default value will be overridden if the value exist in the source object. 
+    // A default value will be overridden if the value exist in the source object.
     firstName: 'Firstname',
     ...person1
 }
 ```
-Mozilla documentation: [Spread Syntax](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax).
+
+Mozilla [Spread Syntax](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax) documentation.
 
 ### Rest Parameters
+
 The rest parameter syntax (`function(...arguments)`) allows representing an unknown number of arguments as an array (similar to Java varargs).
 
 ```JS
@@ -170,25 +181,28 @@ function sum(...numbers) {
 const sum = add(1, 2, 3);
 ```
 
-Mozilla documentation: [Rest Parameters](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/rest_parameters).
+Mozilla [Rest Parameters](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/rest_parameters) documentation.
 
 ### Default Parameters
+
 Default function parameters allow named parameters to be initialized with default values if no value or undefined is passed.
 
 ```JS
-// sum() called without an array would cause an error. Adding a default value prevents the error. 
+// sum() called without an array would cause an error. Adding a default value prevents the error.
 function sum(numbers = [2, 3]) {
     return numbers.reduce((a, b) => (a + b));
 }
 ```
-Mozilla documentation: [Default Parameters](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Default_parameters).
+
+Mozilla [Default Parameters](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Default_parameters) documentation.
 
 ### Arrow Functions
-Arrow function expressions are a syntactically compact alternative to a regular function expression. The arrow funciton does not have bindngs to `this`, `arguments` or `super`
+
+Arrow function expressions are a syntactically compact alternative to a regular function expression. The arrow function does not have bindngs to `this`, `arguments` or `super`
 
 ```JS
 // Parantheses can be omitted for singel value arguments an single rexpression bodies.
-const double = x => x * x;    
+const double = x => x * x;
 
 // Returning an object literal from an arrow function.
 const minMax = (numbers) => ({'min': Math.min(...numbers), 'max': Math.max(...numbers)});
@@ -200,10 +214,13 @@ const sum = (...rest) => rest.reduce((a, b) => a + b);
 const sum = (a, b = 5) => a + b;
 
 ```
-Mozilla documentation: [Arrow Function Expressions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions).
+
+Mozilla [Arrow Function Expressions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions) documentation.
 
 ### The includes() Function
-The ES6 `includes()` method determines whether an array includes a certain value. 
+
+The ES6 `includes()` method determines whether an array includes a certain value.
+
 ```JS
 let numbers = [1, 2, 3];
 
@@ -213,15 +230,17 @@ const found = numbers.includes(0);
 // Before ES6, the indexOf() method, which returns the index or -1, had to be used.
 const found = numbers.indexOf(0) != -1;
 ```
-Mozilla documentation: [Array.prototype.includes()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/includes).
+
+Mozilla [Array.prototype.includes()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/includes) documentation.
 
 ### Let & Const
+
 The `let` and `const` keywords exists because of the behaviour of the older `var` keyword. They allow declaring variables limited to a scope of a block statement or the expression in which it is used, unlike the `var` keyword, which defines a variable globally, or locally to an entire function regardless of block scope. `let` and `const` does do not become properties of the window object, even when declared globally.
 
 * The `let` statement declares a block scope local variable, optionally initializing it to a value.
 * The value of a `const` can't be changed through reassignment, and it can't be redeclared. It is a read-only reference to a value, but it does not mean the value it holds is immutable.
-```JS
 
+```JS
 // Primitive types declared with "const" can not be changed.
 const example = 5;
 example = 10;
@@ -232,10 +251,10 @@ const example = [];
 example.push(5)
 console.log(example)
 
-// Variables declared with "var" starts with the value "undefined". 
-// "let" variables are not initialized until their definition 
+// Variables declared with "var" starts with the value "undefined".
+// "let" variables are not initialized until their definition
 // is evaluated. Accessing the variable before the initialization
-// results in a ReferenceError. 
+// results in a ReferenceError.
 function myFunction() {
   console.log(bar); // undefined
   console.log(foo); // ReferenceError
@@ -243,50 +262,49 @@ function myFunction() {
   let foo = 2;
 }
 ```
-Mozilla documentation: [let](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/let).    
-Mozilla documentation: [const](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/const).
+
+Mozilla [let](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/let) documentation.
+Mozilla [const](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/const) documentation.
 
 ### Import
-The `import` statement is used to import bindings exported by another module or file. 
+
+The `import` statement is used to import bindings exported by another module or file.
 
 Imported modules are always in strict mode.
 
-The `import` statement cannot be used in embedded scripts unless such script has a type="module". 
+The `import` statement cannot be used in embedded scripts unless such script has a type="module".
 
 The `module-name` in the below code exampels are either a relative or absolute path name to the `.js` file containing the module. Bundlers may or may not require the use of the extension.
+
 ```JS
-// Import the default export from a module. 
+// Import the default export from a module.
 import export from 'module-name';
 
 // Import one or more not-default exports from a module.
 import { export1, export2 } from 'module-name';
 
-// The * inserts a module into the current scope, allowing 
+// The * inserts a module into the current scope, allowing
 // usage of the module name as a namespace.
 import * as myModule from 'module-name';
 myMOdule.callMyMethod();
 
-
 // Imports can be renamed.
 import { longModuleName as module } from 'module.name';
 ```
-Mozilla documentation: [import](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import).    
 
+Mozilla [import](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import) documentation.
 
 ### Export
-The `import` statement is used to import bindings exported by another module or file. 
 
-The `export statement` is used to export functions, objects, or primitive values from a module so they can be used by other programs with the `import` statement.
+The `import` statement is used to import bindings exported by another module or file. The `export statement` is used to export functions, objects, or primitive values from a module so they can be used by other programs with the `import` statement. Exported modules are always in strict mode.
 
-Exported modules are always in strict mode.
-
-There are two different types of export, `named` and `default`. 
+There are two different types of export, `named` and `default`.
 A module can have multiple named exports but only one default export.
 
 ```JS
-// Export already declared features as names exports. 
+// Export already declared features as names exports.
 // Renaming is supported while exporting.
-export { myFunction, myVariable as variabel }; 
+export { myFunction, myVariable as variabel };
 
 // Export features as named exports.
 export let myVariable = Math.sqrt(2);
@@ -296,15 +314,17 @@ export function myFunction() { ... };
 export { myFunction as default };
 
 // Export features as default.
-export default myFunction() { ... } 
-export default class { .. }
+export default myFunction() { ... }
+export default class { ... }
 
 // It's possible to export features from a parent module.
 export foo from 'module-name';
 ```
-Mozilla documentation: [export](https://developer.mozilla.org/en-US/docs/web/javascript/reference/statements/export).    
+
+Mozilla [export](https://developer.mozilla.org/en-US/docs/web/javascript/reference/statements/export) documentation.
 
 ### padStart() & padEnd()
+
 The `padStart()` method pads the start of the current string with a given string (repeated, if needed) until the string reaches a given length. `padEnd()` similarly pads the end of the string.
 
 ```JS
@@ -318,5 +338,6 @@ const phoneNumber = '22330033';
 const firstTwo = phoneNumber.slice(0, 2);
 const maskedNumber = firstTwo.padEnd(phoneNumber.length, '*');
 ```
-Mozilla documentation: [String.prototype.padStart()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/padStart).    
-Mozilla documentation: [String.prototype.padEnd()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/padEnd).    
+
+Mozilla [String.prototype.padStart()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/padStart) documentation.
+Mozilla [String.prototype.padEnd()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/padEnd) documentation.
