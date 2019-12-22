@@ -749,28 +749,6 @@ ReactDOM.render(<MyComponent />, document.querySelector("#root"));
 The same app as in the two previous examples, but with Redux used for state management.
 
 ```JSX
-const store = Redux.createStore(messageReducer);
-const Provider = ReactRedux.Provider;
-const connect = ReactRedux.connect;
-
-const ADD = 'ADD';
-
-const addMessage = message => {
-  return {
-    type: ADD,
-    message
-  };
-};
-
-const messageReducer = (state = [], action) => {
-  switch (action.type) {
-    case ADD:
-      return [...state, action.message];
-    default:
-      return state;
-  }
-};
-
 class MyComponent extends React.Component {
   constructor(props) {
     super(props);
@@ -811,6 +789,24 @@ class MyComponent extends React.Component {
   }
 }
 
+const ADD = 'ADD';
+
+const addMessage = message => {
+  return {
+    type: ADD,
+    message
+  };
+};
+
+const messageReducer = (state = [], action) => {
+  switch (action.type) {
+    case ADD:
+      return [...state, action.message];
+    default:
+      return state;
+  }
+};
+
 const mapStateToProps = state => {
   return { messages: state };
 };
@@ -823,7 +819,10 @@ const mapDispatchToProps = dispatch => {
   };
 };
 
-const AppContainer = connect(mapStateToProps, mapDispatchToProps)(MyComponent);
+const AppContainer = ReactRedux.connect(mapStateToProps, mapDispatchToProps)(MyComponent);
+const Provider = ReactRedux.Provider;
+
+const store = Redux.createStore(messageReducer);
 
 ReactDOM.render(
   <Provider store={store}>
