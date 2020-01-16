@@ -831,3 +831,38 @@ ReactDOM.render(
   document.getElementById('root')
 );
 ```
+
+### Alternate mapDispatchToProps() using bindActionCreators()
+
+```JSX
+
+
+// Create an Object having actions creators as properties.
+const actions = {
+    addMessage: name => {
+      return {
+      type: ADD,
+      message
+    };
+  }
+};55
+
+// Use bindActionCreators()
+const mapDispatchToProps = dispatch => {
+  return bindActionCreators(actions, dispatch);
+};
+
+// It can all be added toheter in the connect() method.
+const AppContainer = connect(
+  function mapStateToProps(state) {
+    return {
+      submitNewMessage: message => {
+        dispatch(addMessage(message));
+      }
+    };
+  },
+  function mapDispatchToProps(dispatch) {
+    return bindActionCreators(actions, dispatch);
+  }
+)(MyComponent);
+```
