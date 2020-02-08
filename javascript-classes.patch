@@ -1,0 +1,55 @@
+diff --git a/notes/javascript.md b/notes/javascript.md
+index 7594190..8319854 100644
+--- a/notes/javascript.md
++++ b/notes/javascript.md
+@@ -270,8 +270,7 @@ myMOdule.callMyMethod();
+ // Imports can be renamed.
+ import { longModuleName as module } from 'module.name';
+ ```
+-Mozilla documentation: [import](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import).    
+-
++Mozilla documentation: [import](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import).
+ 
+ ### Export
+ The `import` statement is used to import bindings exported by another module or file. 
+@@ -302,7 +301,7 @@ export default class { .. }
+ // It's possible to export features from a parent module.
+ export foo from 'module-name';
+ ```
+-Mozilla documentation: [export](https://developer.mozilla.org/en-US/docs/web/javascript/reference/statements/export).    
++Mozilla documentation: [export](https://developer.mozilla.org/en-US/docs/web/javascript/reference/statements/export).
+ 
+ ### padStart() & padEnd()
+ The `padStart()` method pads the start of the current string with a given string (repeated, if needed) until the string reaches a given length. `padEnd()` similarly pads the end of the string.
+@@ -319,4 +318,29 @@ const firstTwo = phoneNumber.slice(0, 2);
+ const maskedNumber = firstTwo.padEnd(phoneNumber.length, '*');
+ ```
+ Mozilla documentation: [String.prototype.padStart()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/padStart).    
+-Mozilla documentation: [String.prototype.padEnd()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/padEnd).    
+\ No newline at end of file
++Mozilla documentation: [String.prototype.padEnd()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/padEnd).
++
++### Classes
++ES6 classes are syntactical sugar over JavaScript's existing prototype-based inheritance and are just *special* functions. Equallyt to the function expressions and function declarations, classes has class expressions and class declarations.
++
++
++Constructor values are mutable
++get methods acts as parameter access.
++There are multiple ways to create a class.
++Classes have inheritance.
++
++To use a class declaration, use the keyword `class`.
++```JS
++
++export class Rectangle {
++  constructor(height, width) {
++    this.height = height;
++    this.width = width;
++  }
++}
++
++
++```
++Mozilla documentation: [Classes](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes).
++Mozilla documentation: [Function expressions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/ClasFunction expressions
++Mozilla documentation: [Function declarations](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/ClasFunction expressions
