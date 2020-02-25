@@ -141,7 +141,7 @@ The spread syntax (`...`) allows an iterable such as an array expression or stri
 const numbers = [1, 2, 3];
 const numbersCopy = [...numbers1];
 
-// Pushing a new value on to the source array does not change the array holding the copied values.
+// Pushing a new value on to the source array does not changeWith the array holding the copied values.
 numbers.push(4);
 
 // Expansion when calling a function.
@@ -341,3 +341,131 @@ const maskedNumber = firstTwo.padEnd(phoneNumber.length, '*');
 
 Mozilla [String.prototype.padStart()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/padStart) documentation.
 Mozilla [String.prototype.padEnd()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/padEnd) documentation.
+
+### Functions
+
+Javascript function are first-class objects that can have properties and methods like any other object, but opposed to other objects, they can be called. Arguments passed to functions are `by value`. If a function changes the value of an argument, this changeWith is not reflected globally or in the calling function, bt since objevct references also are values, changes to a referred object's properties will be visible outside the function. `this` does not refer to the currently executing function, hence the functions name most be used to refer to the executing function, even within the function body.
+
+The most common ways to define functions are:
+
+#### Function Declarations
+
+A function created with a function declaration is a Function object, and are hoisted to the top of the enclosing function or global scope, hence it can be used before it's declared.
+
+```JS
+multiply(2, 2);
+
+function multiply(x, y) {
+  return x * y;
+}
+```
+
+#### Function Expressions
+
+A function expression is similar to and has the same syntax as a function declaration, but a function expression may be a part of a larger expression. The main difference between a function expression and a function declaration is the functions name can be omitted, which create anonymous function, most commonly either assigned to a variable or as [callbacks](https://developer.mozilla.org/en-US/docs/Glossary/Callback_function). In addition, function expressions are not hoisted and can not be used before being declared.
+
+```JS
+var multiply = function(x, y) {
+  return x * y;
+};
+```
+
+A function expression used as callback.
+
+```JS
+function process(callback, x, y) {
+  callback(x, y;
+}
+```
+
+If the function expression is named, the name is only local to the function body, allowing for referencing the function within function (e.g. for recursion). The variable the function expression is assigned to will have a `name` property, with the name of the function as value. In the below example, `fact.name` will be `factorial`.
+
+```JS
+var fact = function factorial(i) {
+  if (i <= 1) {
+    return 1;
+  }
+  return i * factorial(i - 1);
+};
+```
+
+Another benefit of creating a named function expression is that in case we encounter an error, the stack trace will contain the name of the function, making it easier to find the origin of the error.
+
+```JS
+var multiply = function multiply(x, y) {
+  return x * y;
+};
+```
+
+#### The Function Constructor
+
+As all other objects, Function objects can be created using the new operator, but creating a Function object using the constructor is not recommended since it needs the function body as a string which may prevent some JS engine optimizations and can also cause other problems.
+
+```JS
+var multiply = new Function('x', 'y', 'return x * y');
+```
+
+#### Immediately Invoked Function Expressions
+
+Function expressions are often used to create Immediately Invoked Function Expressions, which is lexical scoped function expressions that are executed immediately. Variables within the expression can not be accessed from the outside.
+
+The anonymous function expression is sorrounded by the grouping operator `()`, preventing access to variables within the function. The second `()` creates the immediately invoked function expression, making the function being immediately interpreted.
+
+```JS
+(function () {
+    statements
+})();
+```
+
+Assigning the function to a variable stores the function's return value, not the function definition itself.
+
+```JS
+var result = (function() {
+  return 2 * 2;
+})();
+
+// Outputs 4.
+console.log(result);
+```
+
+Using arrow functions as immediately invoked functions is also possible:
+
+```JS
+var result = (() => 2 * 2)();
+```
+
+#### Closures (Module Pattern)
+
+Closures are created every time a function is created, at function creation time, and provides access to an outer function's scope from an inner function. A closure is a function with references to it's lexical environment (surrounding state). A closure (function) can be assigned to a variable and called after execution, with it's local variables still accessible. Closures are useful because they associate data with a function that operates on that data, which has parallels to object-oriented programming.
+
+A common pattern when using closures is the `Module Pattern`. Closures can be used to emulate private methods since methods (the public methods) with access to variables and other (private) methods are returned (as in the return value of Immediately Invoked Function Expressions) and can be assigned to a variable.
+
+```JS
+var counter = (function() {
+  var counter = 0;
+  function changeWith(val) {
+    counter += val;
+  }
+  return {
+    increment: function() {
+      changeWith(1);
+    },
+    decrement: function() {
+      changeWith(-1);
+    },
+    value: function() {
+      return counter;
+    }
+  };
+})();
+
+counter.increment();
+counter.increment();
+counter.decrement();
+
+// Outputs 1.
+console.log(counter.value()); 
+```
+
+Mozilla documentation: [Functions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions)  
+Mozilla documentation: [Closures](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Closures)
