@@ -464,8 +464,213 @@ counter.increment();
 counter.decrement();
 
 // Outputs 1.
-console.log(counter.value()); 
+console.log(counter.value());
 ```
 
 Mozilla documentation: [Functions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions)  
 Mozilla documentation: [Closures](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Closures)
+
+### Classes
+
+ES6 classes are syntactical sugar over the existing prototype-based inheritance. Classes are special functions and equally to `function declarations` and `function expressions`, classes has `class expressions` and `class declarations`.
+
+To define a class using class declaration, use the keyword `class`:
+
+```JS
+class Point {
+  constructor(x, y) {
+    this.x = x;
+    this.y = y;
+  }
+}
+
+// Unlike functions declarations, which are hoisted, class declarations are not, hence the classes MUST be decleared before being uses.
+const point = new Point();
+```
+
+Class expressions can, just like function expressions, be named or unnamed. The name of the named class is, also like function expressions, only local to the classes body, but it's accessible trough the classes `name` property. If no name is given, the name of the variable referencing the class is used.
+
+Create an unnamed class using class expression.
+
+```JS
+let Point = class {
+  constructor(x, y) {
+    this.x = x;
+    this.y = y;
+  }
+};
+
+// Outputs Point.
+console.log(Point.name);
+```
+
+Create a named class using class expression.
+
+```JS
+let Coordinate = class Point {
+  constructor(x, y) {
+    this.x = x;
+    this.y = y;
+  }
+};
+
+// Outputs Point.
+console.log(Coordinate.name);
+```
+
+The body of a class is always executed in `strict mode` and can contain a `constructor` and `methods`. The constructor, used to initialize a class when created, is prefixed with `constructor`, and there can be only one in a class. Instance properties must be defined inside of class methods.Constructor values (also are instance properties) are mutable:
+
+```JS
+let Point = class Point {
+  constructor(x, y) {
+    this.x = x;
+    this.y = y;
+  }
+};
+
+// Changing the instance property x, defined in the construtor..
+Point.x = 2.0;
+```
+
+`get()`, or `set()` allows access to a property that returns a dynamically computed value, and can be used to reflect the status of an internal variable without requiring the use of an explicit method call. It is not possible to simultaneously have a getter bound to a property and have that property actually hold a value (i.e. the getter can not have the same name as the property it's exposes).
+
+```JS
+let Point = class Point {
+  constructor(x, y) {
+    this.x = x;
+    this.y = y;
+  }
+
+  get area() {
+    return calculateArea();
+  }
+
+  calculateArea() {
+    return this.x * this.y;
+  }
+};
+
+// Calls area().
+const area = Point.area;
+```
+
+Field declarations are experimental and support is yet limited (without using a `transpiler` like [Babel](https://babeljs.io/)). Rely on instance properties instead:
+
+```JS
+let Point = class Point {
+  // Public fields with and without default values.
+  x = 0;
+  y;
+  // Private field.
+  #area;
+  constructor(x, y) {
+    this.x = x;
+    this.y = y;
+    this.#area = x * y;
+  }
+};
+```
+
+Classed can have `static` methods, which are called without instantiating their defining class:
+
+```JS
+class Point {
+  constructor(x, y) {
+    this.x = x;
+    this.y = y;
+  }
+
+  static distanceBetween(p1, p2) {
+    const dx = p1.x - p2.x;
+    const dy = p1.y - p2.y;
+
+    return Math.hypot(dx, dy);
+  }
+}
+
+const p1 = new Point(5, 5);
+const p2 = new Point(10, 10);
+
+// Calling static methods trough the instance is not allowed and will return "undefined".
+p1.distance;
+
+// Proper static method call.
+Point.distanceBetween(p1, p2);
+```
+
+Classes have inheritance, and a constructor of a child class can call the constructor of a parent class with `super()`. Use the keyword `extends` to create a subclass:
+
+```JS
+class Point {
+  constructor(x, y) {
+    this.x = x;
+    this.y = y;
+  }
+}
+
+class Circle extends Point {
+  // Constructor parameters can have default values.
+  constructor(x, y, radius = 1) {
+    super(x, y);
+    this.radius = radius;
+  }
+
+  get area() {
+    return this.radius * 3, 14;
+  }
+}
+
+const circle = new Circle(2, 4);
+const area = circle.area;
+```
+
+Classes cannot `extend` regular (non-constructable) objects, but inheritance is still possible using `Object.setPrototypeOf()`:
+
+```JS
+const Point = {
+  identify() {
+    return this.id;
+  }
+};
+
+class Shape {
+  constructor(id) {
+    this.id = id;
+  }
+}
+
+// Shape now inherits Point.
+Object.setPrototypeOf(Shape.prototype, Point);
+
+let shape = new Shape(1);
+console.log(shape.identify());
+```
+
+A class can only inherit from a singel class, hence multiple inheritance is not allowed. To mitigate this, for example to be able to use functionality in tooling classes, it's possible to use `mix-ins`, a function with a superclass as input and a subclass extending that superclass as output can be used to implement mix-ins.
+
+```JS
+const calculatorMixin = Base =>
+  class extends Base {
+    calc() {
+      console.log("calc()");
+    }
+  };
+
+const randomizerMixin = Base =>
+  class extends Base {
+    randomize() {
+      console.log("randomize()");
+    }
+  };
+
+class Foo {}
+class Bar extends calculatorMixin(randomizerMixin(Foo)) {}
+
+// Bar now provides the methods implemented in the mix-ins.
+const bar = new Bar();
+bar.calc();
+bar.randomize();
+```
+
+Mozilla documentation: [Classes](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes).
+Mozilla documentation: [Getter Functions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/get).
