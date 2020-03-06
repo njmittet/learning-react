@@ -6,7 +6,8 @@
   "scripts": {
     "test": "echo 'Error: Testing is not configured.' && exit 1",
     "start": "npx http-server -c-1 -o",
-    "build": "npx babel src --out-dir public --presets react-app/prod"
+    "build": "npx babel src --out-dir public --presets react-app/prod",
+    "clean": "rm -rf ./public "
   },
   "author": "Nils Jørgen Mittet",
   "license": "MIT",
