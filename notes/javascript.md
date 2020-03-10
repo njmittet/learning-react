@@ -2,10 +2,20 @@
 
 This file contains implementation of of the most important ES6+ examples and challenges from the [Scrimba](https://scrimba.com/) courses [Learn modern JavaScript](https://scrimba.com/g/ges6) and [Introduction to ES6+](https://scrimba.com/g/gintrotoes6).
 
+<<<<<<< HEAD
 ## The `this` Keyword
 
 The `this` keyword behaves somewhat differently in JavaScript compared to other languages. See the [Mozilla 'this' documentation](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/this) for details.
 
+||||||| constructed merge base
+=======
+## The `this` Keyword
+
+The `this` keyword behaves somewhat differently in JavaScript compared to other languages. Use the below link for reference:
+
+[Mozilla 'this'  documentation](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/this).
+
+>>>>>>> Update links formatting
 ## Template Literals (Template Strings)
 
 Template literals are string literals allowing embedded expressions and honors whitepace and line breaks, allowing multi-line strings and string interpolation. Template literals are enclosed by the back-tick  (\` \`).
