@@ -2,6 +2,10 @@
 
 This file contains implementation of of the most important ES6+ examples and challenges from the [Scrimba](https://scrimba.com/) courses [Learn modern JavaScript](https://scrimba.com/g/ges6) and [Introduction to ES6+](https://scrimba.com/g/gintrotoes6).
 
+## The `this` Keyword
+
+The `this` keyword behaves somewhat differently in JavaScript compared to other languages. See the [Mozilla 'this' documentation](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/this) for details.
+
 ## Template Literals (Template Strings)
 
 Template literals are string literals allowing embedded expressions and honors whitepace and line breaks, allowing multi-line strings and string interpolation. Template literals are enclosed by the back-tick  (\` \`).
@@ -22,7 +26,7 @@ ${lastName}`)
 console.log(`${num1 + num2}`)
 ```
 
-Mozilla [Template Literals](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals) documentation.
+[Mozilla Template Literals documentation](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals).
 
 ## Enhanced Object Literals
 
@@ -75,7 +79,7 @@ function makeAddress(address) {
 
 ```
 
-Read more: [Enhanced Object Literals](https://dev.to/sarah_chima/enhanced-object-literals-in-es6-a9d).
+[Enhanced Object Literals in ES6](https://dev.to/sarah_chima/enhanced-object-literals-in-es6-a9d).
 
 ## Destructuring Assignment
 
@@ -109,7 +113,7 @@ console.log(`${fn} ${ln}`)
     console.log(`${firstName} ${lastName}`)
 ```
 
-Mozilla [Destructuring Assignment](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment) documentation.
+[Mozilla Destructuring Assignment documentation](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment).
 
 ## Enhanced for-loop (for-of loop)
 
@@ -130,7 +134,7 @@ for (const number of numbers) {
 
 ```
 
-Mozilla [for...of](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for...of) documentation.
+[Mozilla 'for...of' documentation](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for...of).
 
 ### The Spread Syntax
 
@@ -166,7 +170,7 @@ let person2 = {
 }
 ```
 
-Mozilla [Spread Syntax](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax) documentation.
+[Mozilla Spread Syntax documentation](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax).
 
 ### Rest Parameters
 
@@ -194,7 +198,7 @@ function sum(numbers = [2, 3]) {
 }
 ```
 
-Mozilla [Default Parameters](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Default_parameters) documentation.
+[Mozilla  Default Parameters documentation](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Default_parameters).
 
 ### Arrow Functions
 
@@ -215,7 +219,7 @@ const sum = (a, b = 5) => a + b;
 
 ```
 
-Mozilla [Arrow Function Expressions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions) documentation.
+[Mozilla Arrow Functions documentation](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions).
 
 ### The includes() Function
 
@@ -231,7 +235,7 @@ const found = numbers.includes(0);
 const found = numbers.indexOf(0) != -1;
 ```
 
-Mozilla [Array.prototype.includes()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/includes) documentation.
+[Mozilla 'Array.prototype.includes() documentation](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/includes).
 
 ### Let & Const
 
@@ -263,8 +267,8 @@ function myFunction() {
 }
 ```
 
-Mozilla [let](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/let) documentation.
-Mozilla [const](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/const) documentation.
+[Mozilla let documentation](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/let).  
+[Mozilla 'const' documentation](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/const).
 
 ### Import
 
@@ -292,7 +296,7 @@ myMOdule.callMyMethod();
 import { longModuleName as module } from 'module.name';
 ```
 
-Mozilla [import](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import) documentation.
+[Mozilla 'import' documentation](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import).
 
 ### Export
 
@@ -321,7 +325,7 @@ export default class { ... }
 export foo from 'module-name';
 ```
 
-Mozilla [export](https://developer.mozilla.org/en-US/docs/web/javascript/reference/statements/export) documentation.
+ [Mozilla 'export' documentation](https://developer.mozilla.org/en-US/docs/web/javascript/reference/statements/export).
 
 ### padStart() & padEnd()
 
@@ -339,8 +343,8 @@ const firstTwo = phoneNumber.slice(0, 2);
 const maskedNumber = firstTwo.padEnd(phoneNumber.length, '*');
 ```
 
-Mozilla [String.prototype.padStart()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/padStart) documentation.
-Mozilla [String.prototype.padEnd()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/padEnd) documentation.
+[Mozilla 'String.prototype.padStart()' documentation](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/padStart).  
+[Mozilla 'String.prototype.padEnd()' documentation](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/padEnd).
 
 ### Functions
 
@@ -467,8 +471,8 @@ counter.decrement();
 console.log(counter.value());
 ```
 
-Mozilla documentation: [Functions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions)  
-Mozilla documentation: [Closures](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Closures)
+ [Mozilla Functions documentation](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions).  
+[Mozilla Closures documentation](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Closures).
 
 ### Classes
 
