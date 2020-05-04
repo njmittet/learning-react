@@ -2,20 +2,12 @@
 
 This file contains implementation of of the most important ES6+ examples and challenges from the [Scrimba](https://scrimba.com/) courses [Learn modern JavaScript](https://scrimba.com/g/ges6) and [Introduction to ES6+](https://scrimba.com/g/gintrotoes6).
 
-<<<<<<< HEAD
-## The `this` Keyword
-
-The `this` keyword behaves somewhat differently in JavaScript compared to other languages. See the [Mozilla 'this' documentation](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/this) for details.
-
-||||||| constructed merge base
-=======
 ## The `this` Keyword
 
 The `this` keyword behaves somewhat differently in JavaScript compared to other languages. Use the below link for reference:
 
 [Mozilla 'this'  documentation](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/this).
 
->>>>>>> Update links formatting
 ## Template Literals (Template Strings)
 
 Template literals are string literals allowing embedded expressions and honors whitepace and line breaks, allowing multi-line strings and string interpolation. Template literals are enclosed by the back-tick  (\` \`).
@@ -481,7 +473,7 @@ counter.decrement();
 console.log(counter.value());
 ```
 
- [Mozilla Functions documentation](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions).  
+[Mozilla Functions documentation](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions).  
 [Mozilla Closures documentation](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Closures).
 
 ### Classes
@@ -585,7 +577,7 @@ let Point = class Point {
 };
 ```
 
-Classed can have `static` methods, which are called without instantiating their defining class:
+Classes can have `static` methods, which are called without instantiating their defining class:
 
 ```JS
 class Point {
@@ -686,5 +678,215 @@ bar.calc();
 bar.randomize();
 ```
 
-Mozilla documentation: [Classes](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes).
-Mozilla documentation: [Getter Functions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/get).
+[Mozilla Classes documentation](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes).  
+[Mozilla Getter Functions documentation](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/get).
+
+### Asynchronous JavaScript
+
+Before 2012, callbacks were the only way of doing asynchronous programming in JavaScript. In 2012, promises where introduce in order to mitigate the problem with long, and hard to read and reason about, callback chains. Promises made asynchronous JavaScript a lot easier, but had itself its share of issues. Especially somewhat confusing error handling. ES2017 introduced the keywords `async` and `await`, which are used to add syntactic sugar on top of promises, making asynchronous code easier to write (and read) by making it appear procedural.
+
+Programming asynchronous code using a promises:
+
+```JS
+const url = 'https://jsonplaceholder.typicode.com/users';
+
+function getUsers() {
+  fetch(url)
+    .then((response) => response.json())
+    .then((json) => console.log(json[0]));
+}
+
+getUsers();
+```
+
+Using `async` and `await` instead of promises:
+
+```JS
+const url = 'https://jsonplaceholder.typicode.com/users';
+
+async function getUsers() {
+  const response = await fetch(url);
+  const json = await response.json();
+  console.log(json[0]);
+}
+
+getUsers();
+```
+
+Since an async keyword turns a function into a promise, a hybrid approach of promises and await is possible, and sometimes preferable in order to increase readability and improve error handling.
+
+```JS
+const url = 'https://jsonplaceholder.typicode.com/users';
+
+async function getUsers() {
+  const json = await fetch(url)
+    .then(response=> response.json())
+    .catch(error => console.log(error));
+  console.log(json[0]);
+}
+
+getUsers();
+```
+
+Using `await` directly on the function call will block execution of any subsequent function call, which is inefficient if the application logic allows performing multiple asynchronous calls as the same time. Unnecessary blocking can be avoided by assigning the result to a variabel and awaiting the variable to get a value instead:
+
+```JS
+function waitTwoSeconds() {
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      resolve("Waited two seconds.");
+    }, 2000);
+  });
+}
+
+function waitThreeSeconds() {
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      resolve("Waited three seconds.");
+    }, 3000);
+  });
+}
+
+// Completes after five seconds as the seconds call is not made until the first call returns.
+async function asyncCallSlow() {
+  const two = await waitTwoSeconds();
+  const three = await waitThreeSeconds();
+  console.log(two);
+  console.log(three);
+}
+
+// Completes after three seconds as the calls are made concurrently.
+async function asyncCallFast() {
+  const two = waitTwoSeconds();
+  const three = waitThreeSeconds();
+  console.log(await two);
+  console.log(await three);
+}
+
+asyncCallSlow();
+asyncCallFast();
+```
+
+Waiting simultaneously for multiple promises to finish using `Promise.all()`:
+
+```JS
+function parallelPromise() {
+  // Promise.all() returns a new promise when all the promises are resolved, leaving
+  // to the caller to handle the result.
+  return Promise.all([waitTwoSeconds(), waitThreeSeconds()]);
+}
+
+concurrentPromise().then((messages) => {
+  console.log(messages[0]);
+  console.log(messages[1]);
+});
+```
+
+Combining `Promise.all()` with destructuring:
+
+```JS
+async function concurrentPromise() {
+  const [val1, val2] = await Promise.all([waitTwoSeconds(), waitThreeSeconds()]);
+  console.log(val1);
+  console.log(val2);
+}
+
+concurrentPromise();
+```
+
+#### Error Handling
+
+Compared to promises, async functions are less tricky when it comes to error handling since they allow using `try-catch` as if the code where synchronous. Chained promises hides the source of the exception. A `catch` on the other hand, is neither attached to the root promise nor the most recent promise; it is attached to the entire chain preceding it, which gives the user a choice of how to handle errors (e.g. by re-throwing the exception). In addition, the `try-catch` error stacks makes more sense than the ambiguous output created by failing promises. The latter tend to be large and makes it difficult to locate where the error originated, and, unless the exception is caught an re-thrown, the error points to the function from which the error originated.
+
+Promise error handling:
+
+```JS
+function getUsers() {
+  fetch(url)
+    .then((response) => response.json())
+    .then((json) => console.log(json[0]))
+    .catch(error => console.error(error));
+}
+
+getUsers();
+```
+
+`try-catch` error handling:
+
+```JS
+async function getUsers() {
+  try {
+    const response = await fetch(url);
+    const json = await response.json();
+    console.log(json[0]);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+getUsers();
+```
+
+The synchronous `try-catch` solution leaves the granularity of the error handling to the user and, even with JavaScript's limited functionality for catching specific types, it's possible to be explicit.
+
+```JS
+const saveUser = async (user) => {
+  try {
+    const user = await saveUser(user);
+    additionalAction(user);
+  } catch (error) {
+    // There is no "catch (HTTPError)".
+    if (error instanceof HTTPError) {
+      console.log('User could not be created:' + error);
+    } else {
+      // Let all other errors bubble up the stack.
+      throw error;
+    }
+  }
+};
+```
+
+While `try-catch`blocks usually are easier to reason about, there are ways to fail to handle errors originating from promises.
+
+In the example below, an async method is called inside the `try-catch` block, but the code does not await, which causes a `UnhandledPromiseRejectionWarning` when the code in the called method throws.
+
+```JS
+async function throwError() {
+    // When an error is thrown in an async method, a rejected promised will be returned,
+    // carrying the thrown error, which is equivalent to "return Promise.Reject(error)".
+    throw new Error("Thrown from thisThrows()");
+}
+
+try {
+    throwError();
+} catch (e) {
+    console.error(e);
+} finally {
+    // ...
+}
+```
+
+The situation is easy to mitigate; when returning a promise within a `try-catch` block, make sure to await it.
+
+```JS
+async function throwError() {
+    throw new Error("Thrown from thisThrows()");
+}
+
+try {
+    await throwError();
+} catch (e) {
+    console.error(e);
+} finally {
+    // ...
+}
+```
+
+A related situation is when the async method is awaited, but the call is not made inside a `try-catch` block. If the async method returns a rejected promise (e.g. due to an exception), it will cause a `UnhandledPromiseRejectionWarning` if the promise reaches the `await` keyword and there is not `catch` in place to handle the error.
+
+[Mozilla JavaScript Guide: Using 'async' and 'await'](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Asynchronous/Async_await)  
+[Mozilla JavaScript Guide: Using Promises](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Using_promises)  
+[Mozilla 'async' documentation](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function)  
+[Mozilla 'await' documentation](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/await)  
+[Error handling with Async/Await in JS](https://itnext.io/error-handling-with-async-await-in-js-26c3f20bc06a)  
+[7 Reasons Why JavaScript Async/Await Is Better Than Plain Promises](https://dev.to/gafi/7-reasons-to-always-use-async-await-over-plain-promises-tutorial-4ej9)
