@@ -6,7 +6,7 @@ This file contains implementation of of the most important ES6+ examples and cha
 
 The `this` keyword behaves somewhat differently in JavaScript compared to other languages. Use the below link for reference:
 
-[Mozilla 'this'  documentation](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/this).
+[Mozilla 'this'  documentation](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/this)
 
 ## Template Literals (Template Strings)
 
@@ -28,7 +28,7 @@ ${lastName}`)
 console.log(`${num1 + num2}`)
 ```
 
-[Mozilla Template Literals documentation](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals).
+[Mozilla Template Literals documentation](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals)
 
 ## Enhanced Object Literals
 
@@ -81,7 +81,7 @@ function makeAddress(address) {
 
 ```
 
-[Enhanced Object Literals in ES6](https://dev.to/sarah_chima/enhanced-object-literals-in-es6-a9d).
+[Enhanced Object Literals in ES6](https://dev.to/sarah_chima/enhanced-object-literals-in-es6-a9d)
 
 ## Destructuring Assignment
 
@@ -115,7 +115,7 @@ console.log(`${fn} ${ln}`)
     console.log(`${firstName} ${lastName}`)
 ```
 
-[Mozilla Destructuring Assignment documentation](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment).
+[Mozilla Destructuring Assignment documentation](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment)
 
 ## Enhanced for-loop (for-of loop)
 
@@ -136,7 +136,7 @@ for (const number of numbers) {
 
 ```
 
-[Mozilla 'for...of' documentation](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for...of).
+[Mozilla 'for...of' documentation](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for...of)
 
 ### The Spread Syntax
 
@@ -172,7 +172,7 @@ let person2 = {
 }
 ```
 
-[Mozilla Spread Syntax documentation](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax).
+[Mozilla Spread Syntax documentation](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax)
 
 ### Rest Parameters
 
@@ -187,7 +187,7 @@ function sum(...numbers) {
 const sum = add(1, 2, 3);
 ```
 
-Mozilla [Rest Parameters](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/rest_parameters) documentation.
+[Mozilla Rest Parameters](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/rest_parameters)
 
 ### Default Parameters
 
@@ -200,7 +200,7 @@ function sum(numbers = [2, 3]) {
 }
 ```
 
-[Mozilla  Default Parameters documentation](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Default_parameters).
+[Mozilla Default Parameters documentation](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Default_parameters)
 
 ### Arrow Functions
 
@@ -221,7 +221,7 @@ const sum = (a, b = 5) => a + b;
 
 ```
 
-[Mozilla Arrow Functions documentation](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions).
+[Mozilla Arrow Functions documentation](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions)
 
 ### The includes() Function
 
@@ -269,8 +269,8 @@ function myFunction() {
 }
 ```
 
-[Mozilla let documentation](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/let).  
-[Mozilla 'const' documentation](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/const).
+[Mozilla let documentation](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/let)  
+[Mozilla 'const' documentation](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/const)
 
 ### Import
 
@@ -298,7 +298,7 @@ myMOdule.callMyMethod();
 import { longModuleName as module } from 'module.name';
 ```
 
-[Mozilla 'import' documentation](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import).
+[Mozilla 'import' documentation](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import)
 
 ### Export
 
@@ -327,7 +327,7 @@ export default class { ... }
 export foo from 'module-name';
 ```
 
- [Mozilla 'export' documentation](https://developer.mozilla.org/en-US/docs/web/javascript/reference/statements/export).
+ [Mozilla 'export' documentation](https://developer.mozilla.org/en-US/docs/web/javascript/reference/statements/export)
 
 ### padStart() & padEnd()
 
@@ -345,8 +345,8 @@ const firstTwo = phoneNumber.slice(0, 2);
 const maskedNumber = firstTwo.padEnd(phoneNumber.length, '*');
 ```
 
-[Mozilla 'String.prototype.padStart()' documentation](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/padStart).  
-[Mozilla 'String.prototype.padEnd()' documentation](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/padEnd).
+[Mozilla 'String.prototype.padStart()' documentation](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/padStart)  
+[Mozilla 'String.prototype.padEnd()' documentation](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/padEnd)
 
 ### Functions
 
@@ -473,8 +473,8 @@ counter.decrement();
 console.log(counter.value());
 ```
 
-[Mozilla Functions documentation](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions).  
-[Mozilla Closures documentation](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Closures).
+[Mozilla Functions documentation](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions)  
+[Mozilla Closures documentation](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Closures)
 
 ### Classes
 
@@ -678,8 +678,8 @@ bar.calc();
 bar.randomize();
 ```
 
-[Mozilla Classes documentation](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes).  
-[Mozilla Getter Functions documentation](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/get).
+[Mozilla Classes documentation](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes)  
+[Mozilla Getter Functions documentation](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/get)
 
 ### Asynchronous JavaScript
 
