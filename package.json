@@ -1,24 +1,19 @@
 {
   "name": "learning-react",
   "version": "1.0.0",
-  "description": "Notes and code written while learning JavaScript (ES6), React and Redux.",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo 'Error: Testing is not configured.' && exit 1",
-    "start": "npx http-server -c-1 -o",
-    "build": "npx babel src --out-dir public --presets react-app/prod",
-    "clean": "rm -rf ./public "
+  "description": "",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/njmittet/learning-react"
   },
   "author": "Nils Jørgen Mittet",
   "license": "MIT",
   "dependencies": {},
   "devDependencies": {
-    "babel-cli": "^6.26.0",
-    "babel-preset-react-app": "^3.1.2",
-    "eslint": "^6.8.0",
-    "prettier": "^1.19.1",
-    "eslint-plugin-react": "^7.18.3",
-    "eslint-plugin-prettier": "^3.1.2",
-    "eslint-config-prettier": "^6.10.0"
+    "eslint": "7.x",
+    "eslint-config-prettier": "6.x",
+    "eslint-plugin-prettier": "3.x",
+    "eslint-plugin-react": "7.x",
+    "prettier": "2.x"
   }
 }

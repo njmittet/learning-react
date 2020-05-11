@@ -1,0 +1,14 @@
+{
+  "name": "learning-react",
+  "version": "1.0.0",
+  "description": "Example using React without JSX and a build tool.",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/njmittet/learning-react"
+  },
+  "scripts": {
+    "start": "npx http-server -c-1 -o"
+  },
+  "author": "Nils Jørgen Mittet",
+  "license": "MIT"
+}
