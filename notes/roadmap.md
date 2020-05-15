@@ -4,8 +4,7 @@ Task and resources are moved to the [Completed](completed.md) file when implemen
 
 ## Notes
 
-1. [Introduction to ES6+](https://scrimba.com/g/gintrotoes6)
-2. [Learn modern JavaScript](https://scrimba.com/g/ges6)
+1. [Learn modern JavaScript](https://scrimba.com/g/ges6)
 
 ## Examples
 
