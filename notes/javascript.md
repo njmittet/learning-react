@@ -890,3 +890,37 @@ A related situation is when the async method is awaited, but the call is not mad
 [Mozilla 'await' documentation](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/await)  
 [Error handling with Async/Await in JS](https://itnext.io/error-handling-with-async-await-in-js-26c3f20bc06a)  
 [7 Reasons Why JavaScript Async/Await Is Better Than Plain Promises](https://dev.to/gafi/7-reasons-to-always-use-async-await-over-plain-promises-tutorial-4ej9)
+
+### Sets
+
+Set are collections of unique values, which can be iterated over an listed after insertion order. In terms of quality (in order to evaluate uniqueness), the algorithm used is the same one as used in the `===` operator. +0 and -0 are considers to be equal. THat also aplies to NaN, which is equal to NaN, even if it's not the same object (NaN !== NaN).
+
+A Set is created using the constructor `Set()`. Values can then be added or removed. Duplicate values will be ignored.
+
+```JS
+const values = new Set();
+
+values.add(1);
+values.add(5);
+values.add(5);
+
+// Remove the (single) 5.
+values.delete(5);
+
+// Verify that the 5 no longer exists.
+values.has(5);
+```
+
+A set can also be initialized on creation by providing an array of values to the construtor. Duplicate values will be ignored:
+
+```JS
+const values = new Set([1, 5, 5]);
+
+// Remove the (single) 5.
+values.delete(5);
+
+// Verify that the 5 no longer exists.
+values.has(5);
+```
+
+[Mozilla Set documentation](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set)
