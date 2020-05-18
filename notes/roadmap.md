@@ -15,11 +15,7 @@ Task and resources are moved to the [Completed](completed.md) file when implemen
 
 ## React + Redux
 
-Resouces used to extend the [React + Redux](react-redux.md) notes.
-
-### General
-
-1. Alternative notation for mapDispatchToProps(): [CodePen ReactRedux Example](https://codepen.io/team/codepen/pen/yZrxJo).
+Resources used to extend the [React + Redux](react-redux.md) notes.
 
 ### React Render Props
 

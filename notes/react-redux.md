@@ -643,7 +643,7 @@ const ConnectedComponent = ReactRedux.connect(mapStateToProps, mapDispatchToProp
 
 ### A Complete React App
 
-An app only using React state management for reference.
+An app only using React state management for reference:
 
 ```JSX
 class MyComponent extends React.Component {
@@ -766,7 +766,7 @@ class MyComponent extends React.Component {
   }
 
   submitMessage() {
-    this.props.submitNewMessage(this.state.input);
+    this.props.addMessage(this.state.input);
     this.setState({
       input: ''
     });
@@ -798,6 +798,20 @@ const addMessage = message => {
   };
 };
 
+const mapStateToProps = state => {
+  return { messages: state };
+};
+
+const mapDispatchToProps = dispatch => {
+  return {
+    addMessage: message => {
+      dispatch(addMessage(message));
+    }
+  };
+};
+
+const AppContainer = ReactRedux.connect(mapStateToProps, mapDispatchToProps)(MyComponent);
+
 const messageReducer = (state = [], action) => {
   switch (action.type) {
     case ADD:
@@ -807,22 +821,9 @@ const messageReducer = (state = [], action) => {
   }
 };
 
-const mapStateToProps = state => {
-  return { messages: state };
-};
-
-const mapDispatchToProps = dispatch => {
-  return {
-    submitNewMessage: message => {
-      dispatch(addMessage(message));
-    }
-  };
-};
-
-const AppContainer = ReactRedux.connect(mapStateToProps, mapDispatchToProps)(MyComponent);
-const Provider = ReactRedux.Provider;
-
 const store = Redux.createStore(messageReducer);
+
+const Provider = ReactRedux.Provider;
 
 ReactDOM.render(
   <Provider store={store}>
@@ -830,4 +831,39 @@ ReactDOM.render(
   </Provider>,
   document.getElementById('root')
 );
+```
+
+### Using `React.bindActionCreators()`
+
+Replace the code in the above example that creates `mapDispatchToProps` with `Redux.bindActionCreators()`.
+The use case for `bindActionCreators()` is when passing action creators down to a component that isn't aware of Redux, and one don't want to pass `dispatch()` function or the Redux store to it. This is not different from manually creating a `mapDispatchToProps` function programatically .
+
+```JSX
+const actions = {
+  addMessage: (message) => {
+    return {
+      type: ADD,
+      message,
+    };
+  },
+};
+
+const mapDispatchToProps = dispatch => {
+  return Redux.bindActionCreators(actions, dispatch);
+};
+```
+
+Combine the above example into a single method:
+
+```JSX
+const AppContainer = ReactRedux.connect(
+  function mapStateToProps(state) {
+    return {
+      messages: state,
+    };
+  },
+  function mapDispatchToProps(dispatch) {
+    return Redux.bindActionCreators(actions, dispatch);
+  }
+)(MyComponent);
 ```
