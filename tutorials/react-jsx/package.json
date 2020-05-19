@@ -7,9 +7,8 @@
     "url": "https://github.com/njmittet/learning-react"
   },
   "scripts": {
-    "start": "cp src/index.html public/ && npx http-server -c-1 -o",
-    "build": "npx babel src/ --out-dir public/",
-    "clean": "rm -r public/"
+    "start": "npx http-server -c-1 -o",
+    "build": "npx babel src/ --out-dir public/"
   },
   "author": "Nils Jørgen Mittet",
   "license": "MIT",
