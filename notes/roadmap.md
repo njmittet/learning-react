@@ -6,7 +6,16 @@ Task and resources are moved to the [Completed](completed.md) file when implemen
 
 1. [Learn modern JavaScript](https://scrimba.com/g/ges6)
 
-## Examples
+## React Examples
+
+1. Create React App: The React application from the [React + Redux notes](react-redux.md).
+2. Create React App: The React + Redux application from the [React + Redux notes](react-redux.md).
+3. Create React App: The tic-tac-toe application from the [Tutorial: Intro to React](https://reactjs.org/tutorial/tutorial.html).
+
+## React Hooks Examples
+
+1. Create React App: The Scrimba [Tic Tac Toe With React Hooks](https://reactjs.org/tutorial/tutorial.html) example, witch modifies the example from the React documentation to use [hooks](https://reactjs.org/docs/hooks-intro.html);
+2. Create React App: The React [Introducing Hooks](https://reactjs.org/docs/hooks-intro.html) tutorial.
 
 ### Toolchain
 
