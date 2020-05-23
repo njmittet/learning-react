@@ -690,7 +690,7 @@ ReactDOM.render(<MyComponent />, document.querySelector("#root"));
 
 ### Using React.createRef()
 
-In a typical React data flow, props are the way that parent components interact with their children. To modify a child, re-render it with new props. However, there are a few cases where you need to imperatively modify a child outside of React data flow. The child to be modified could be an instance of a React component, or a DOM element.
+In a typical React data flow, props are the way that parent components interact with their children. Re-render a component with new props in order to visually modifying ut. However, there are cases where imperative modification of a child outside of React data flow is preferable. The child to be modified could be an instance of a React component, or a DOM element. like a form element as in this example.
 
 [Refs](https://reactjs.org/docs/refs-and-the-dom.html) are created using `React.createRef()` and provides a way to access DOM nodes or React elements created in the render method. Refs are commonly assigned to an instance property when a component is constructed so they can be referenced throughout the component.
 
@@ -700,7 +700,7 @@ There are a few good use cases for refs:
 * Triggering imperative animations.
 * Integrating with third-party DOM libraries.
 
-The example below uses refs to get the value of the input, but as already shown, this can, and should, be done declarative using the state.
+The example below uses refs to get the value of a input element. However, this can also, and should, be done declarative using the state.
 
 ```JSX
 class MyComponent extends React.Component {
