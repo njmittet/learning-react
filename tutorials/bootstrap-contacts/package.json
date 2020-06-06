@@ -1,0 +1,16 @@
+{
+  "name": "bootstrap-contacts",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "A jQuery and Bootstrap contact list application, using ES6 for the node.js code.",
+  "scripts": {
+    "start": "npx http-server -c-1 -o",
+    "server": "node server.js"
+  },
+  "author": "Nils Jørgen Mittet",
+  "license": "MIT",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.17.1"
+  }
+}
