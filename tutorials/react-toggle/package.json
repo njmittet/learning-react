@@ -1,7 +1,7 @@
 {
-  "name": "learning-react",
+  "name": "react-toggle",
   "version": "1.0.0",
-  "description": "Example using React without JSX and a build tool.",
+  "description": "Example application using React without JSX or a build tool.",
   "repository": {
     "type": "git",
     "url": "https://github.com/njmittet/learning-react"

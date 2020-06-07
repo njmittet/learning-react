@@ -1,6 +1,6 @@
 # react-jsx
 
-This folder contain an example of using React with JSX, and using the JavaScript preprocessor Babel to compile the JSX to JavaScript, in the simplest possible way. The example does not provide a complete development- or production build setup.
+This folder contains an example application using React with JSX, and using the JavaScript preprocessor Babel to compile the JSX to JavaScript, in the simplest possible way. The example does not provide a complete development- or production build setup.
 
 The `package.json` provides the following scripts (listed in the order they normally would use them):
 

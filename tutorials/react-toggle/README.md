@@ -1,6 +1,6 @@
 # react
 
-This folder contain an example of using React without JSX or any build too.
+This folder contains an example application built with React without JSX or any build too.
 
 The `package.json` provides the following scripts (listed in the order they normally would use them):
 

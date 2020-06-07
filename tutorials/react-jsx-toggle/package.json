@@ -1,5 +1,5 @@
 {
-  "name": "learning-react",
+  "name": "react-jsx-toggle",
   "version": "1.0.0",
   "description": "Example using Babel to transform .jsx file to .js files.",
   "repository": {
