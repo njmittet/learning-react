@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import './App.css';
 
 class MyComponent extends Component {
   constructor(props) {
@@ -8,6 +7,8 @@ class MyComponent extends Component {
       input: '',
       messages: [],
     };
+    this.handleChange = this.handleChange.bind(this);
+    this.submitMessage = this.submitMessage.bind(this);
   }
 
   handleChange(event) {
@@ -26,15 +27,16 @@ class MyComponent extends Component {
   render() {
     return (
       <div>
-        <h1>Add Message:</h1>
-        <input onChange={this.handleChange.bind(this)} value={this.state.input} />
-        <button onClick={this.submitMessage.bind(this)}>Submit</button>
-        <ul>
+        <input className="form-control" onChange={this.handleChange} value={this.state.input} placeholder="John Doe" />
+        <button className="btn btn-primary mt-3" onClick={this.submitMessage}>
+          Add Contact
+        </button>
+        <ul className="list-group mt-3">
           {this.state.messages.map((message, id) => {
             return (
-              <div key={id}>
-                <p>{message}</p>
-              </div>
+              <li className="list-group-item py-2" key={id}>
+                {message}
+              </li>
             );
           })}
         </ul>
@@ -45,7 +47,8 @@ class MyComponent extends Component {
 
 function App() {
   return (
-    <div className="App">
+    <div className="mt-3 container">
+      <h1>Contacts</h1>
       <MyComponent />
     </div>
   );
