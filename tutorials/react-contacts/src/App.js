@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
 
-class MyComponent extends Component {
+class ContactApp extends Component {
   constructor(props) {
     super(props);
     this.state = {
       input: '',
-      messages: [],
+      contacts: [],
     };
     this.handleChange = this.handleChange.bind(this);
-    this.submitMessage = this.submitMessage.bind(this);
+    this.submitContact = this.submitContact.bind(this);
   }
 
   handleChange(event) {
@@ -17,41 +17,56 @@ class MyComponent extends Component {
     });
   }
 
-  submitMessage() {
+  submitContact() {
     this.setState({
       input: '',
-      messages: [...this.state.messages, this.state.input],
+      contacts: [...this.state.contacts, this.state.input],
     });
   }
 
   render() {
     return (
-      <div>
-        <input className="form-control" onChange={this.handleChange} value={this.state.input} placeholder="John Doe" />
-        <button className="btn btn-primary mt-3" onClick={this.submitMessage}>
-          Add Contact
-        </button>
-        <ul className="list-group mt-3">
-          {this.state.messages.map((message, id) => {
-            return (
-              <li className="list-group-item py-2" key={id}>
-                {message}
-              </li>
-            );
-          })}
-        </ul>
+      <div className="mt-3 container">
+        <h1>Contacts</h1>
+        <Input onChange={this.handleChange} inputValue={this.state.input} placeHolder="John Doe" />
+        <Button action={this.submitContact} text="Add Contact" />
+        <List values={this.state.contacts} />
       </div>
     );
   }
 }
 
-function App() {
+const Input = ({ onChange, inputValue, placeHolder }) => {
+  console.log(inputValue);
   return (
-    <div className="mt-3 container">
-      <h1>Contacts</h1>
-      <MyComponent />
+    <div>
+      <input className="form-control" onChange={onChange} value={inputValue} placeholder={placeHolder} />
     </div>
   );
-}
+};
 
-export default App;
+const Button = ({ action, text }) => {
+  return (
+    <div>
+      <button className="btn btn-primary mt-3" onClick={action}>
+        {text}
+      </button>
+    </div>
+  );
+};
+
+const List = ({ values }) => {
+  return (
+    <ul className="list-group mt-3">
+      {values.map((value, id) => {
+        return (
+          <li className="list-group-item py-2" key={id}>
+            {value}
+          </li>
+        );
+      })}
+    </ul>
+  );
+};
+
+export default ContactApp;
