@@ -115,43 +115,38 @@ Items.defaultProps = {
 
 ### Passing Callbacks as Props
 
-Passing a handler functions to a child component allows the child component to interact with their parent component.
+Passing handler functions to a child component allows the child component to interact with their parent component, and allows the parent component to handle the state.
 
 ```JSX
-class MyComponent extends React.Component {
+class MyApp extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      inputValue: ''
+      inputValue: '',
     };
     // Binding 'this' in the constructor results in 'this' being bound to the class methods at
     // the time of component initalization, allowing for referencing the class 'this' when
     // calling this.setState() inside handleChange().
     this.handleChange = this.handleChange.bind(this);
   }
-
   handleChange(event) {
     this.setState({
-      inputValue: event.target.value
+      inputValue: event.target.value,
     });
   }
-
   render() {
     return (
       <div>
-        <GetInput handleChange={this.handleChange} />
-        <RenderInput input={this.state.inputValue} />
+        <GetInput value={this.state.inputValue} handleChange={this.handleChange} />
       </div>
     );
   }
 }
 
-// The child componenct receving and using the callback method.
 class GetInput extends React.Component {
   constructor(props) {
     super(props);
   }
-
   render() {
     return (
       <div>
@@ -233,14 +228,14 @@ class MyComponent extends React.Component {
 
 ### Controlled Input
 
-Form control elements like `input` and `textarea` maintain their own state in the DOM. With React, the state can be moved into a React component's state. React will control the value of the input field, and the input becomes part of the application state. When typing in input field, the text is processed by the handleChange() method and set as the "input" property in the local state before being rendered as the value in the input box on the page. The component state becomes the single source of truth for the input value.
+Form control elements like `input` and `textarea` maintain their own state in the DOM. With React, the state can be moved into a React component's state. React will control the value of the input field, and the input becomes part of the application state. When typing in input field, the text is processed by the `handleChange()` method and set as the `input` property in the local state before being rendered as the value in the input box on the page, hence the component state becomes the single source of truth for the input value.
 
 ```JSX
 class MyComponent extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      input: ''
+      input: '',
     };
     this.handleChange = this.handleChange.bind(this);
   }
@@ -263,7 +258,7 @@ class MyComponent extends React.Component {
 
 ### Controlled Forms
 
-Having React controlling the internal state for form element also applies to the regular HTML form element.
+Using React to control the internal state for form elements also applies to the regular HTML `form` element itself.
 
 ```JSX
 class MyComponent extends React.Component {
@@ -271,7 +266,7 @@ class MyComponent extends React.Component {
     super(props);
     this.state = {
       input: '',
-      submit: ''
+      submit: '',
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
