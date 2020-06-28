@@ -5,10 +5,10 @@ class MyComponent extends Component {
     super(props);
     this.state = {
       input: '',
-      messages: [],
+      contacts: [],
     };
     this.handleChange = this.handleChange.bind(this);
-    this.submitMessage = this.submitMessage.bind(this);
+    this.submitContact = this.submitContact.bind(this);
   }
 
   handleChange(event) {
@@ -17,25 +17,28 @@ class MyComponent extends Component {
     });
   }
 
-  submitMessage() {
+  submitContact(event) {
+    event.preventDefault();
     this.setState({
       input: '',
-      messages: [...this.state.messages, this.state.input],
+      contacts: [...this.state.contacts, this.state.input],
     });
   }
 
   render() {
     return (
       <div>
-        <input className="form-control" onChange={this.handleChange} value={this.state.input} placeholder="John Doe" />
-        <button className="btn btn-primary mt-3" onClick={this.submitMessage}>
-          Add Contact
-        </button>
+        <form onSubmit={this.submitContact}>
+          <input className="form-control" onChange={this.handleChange} value={this.state.input} />
+          <button className="btn btn-primary mt-3" type="submit">
+            Add Contact
+          </button>
+        </form>
         <ul className="list-group mt-3">
-          {this.state.messages.map((message, id) => {
+          {this.state.contacts.map((contact, id) => {
             return (
               <li className="list-group-item py-2" key={id}>
-                {message}
+                {contact}
               </li>
             );
           })}
