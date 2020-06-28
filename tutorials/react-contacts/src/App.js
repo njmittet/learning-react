@@ -29,7 +29,7 @@ class MyComponent extends Component {
     return (
       <div>
         <form onSubmit={this.submitContact}>
-          <input className="form-control" onChange={this.handleChange} value={this.state.input} />
+          <input type="text" className="form-control" onChange={this.handleChange} value={this.state.input} />
           <button className="btn btn-primary mt-3" type="submit">
             Add Contact
           </button>
