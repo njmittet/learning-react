@@ -17,7 +17,8 @@ class ContactApp extends Component {
     });
   }
 
-  submitContact() {
+  submitContact(event) {
+    event.preventDefault();
     this.setState({
       input: '',
       contacts: [...this.state.contacts, this.state.input],
@@ -28,34 +29,27 @@ class ContactApp extends Component {
     return (
       <div className="mt-3 container">
         <h1>Contacts</h1>
-        <Input onChange={this.handleChange} inputValue={this.state.input} placeHolder="John Doe" />
-        <Button action={this.submitContact} text="Add Contact" />
-        <List values={this.state.contacts} />
+        <ItemInput onChange={this.handleChange} onSubmit={this.submitContact} inputValue={this.state.input} />
+        <ItemList values={this.state.contacts} />
       </div>
     );
   }
 }
 
-const Input = ({ onChange, inputValue, placeHolder }) => {
-  console.log(inputValue);
+const ItemInput = ({ onChange, onSubmit, inputValue }) => {
   return (
     <div>
-      <input className="form-control" onChange={onChange} value={inputValue} placeholder={placeHolder} />
+      <form onSubmit={onSubmit}>
+        <input className="form-control" onChange={onChange} value={inputValue} />
+        <button className="btn btn-primary mt-3" type="submit">
+          Add Contact
+        </button>
+      </form>
     </div>
   );
 };
 
-const Button = ({ action, text }) => {
-  return (
-    <div>
-      <button className="btn btn-primary mt-3" onClick={action}>
-        {text}
-      </button>
-    </div>
-  );
-};
-
-const List = ({ values }) => {
+const ItemList = ({ values }) => {
   return (
     <ul className="list-group mt-3">
       {values.map((value, id) => {
