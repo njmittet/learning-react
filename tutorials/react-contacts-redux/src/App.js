@@ -1,46 +1,18 @@
 import React from 'react';
 import { createStore, bindActionCreators } from 'redux';
 import { Provider, connect } from 'react-redux';
-import { v4 as uuid } from 'uuid';
-
-const initialState = [
-  {
-    name: 'Jioke Silas',
-    id: uuid(),
-  },
-  {
-    name: 'Uloma Asomugha',
-    id: uuid(),
-  },
-  {
-    name: 'Chris Coyier',
-    id: uuid(),
-  },
-];
 
 class App extends React.Component {
   render() {
     return (
-      <section className="section">
-        <h1 className="title">Contacts</h1>
+      <div className="mt-3 container">
+        <h1>Contacts Redux</h1>
         <AddContact addContact={this.props.addContact} />
-        <Contacts contacts={this.props.contacts} />
-      </section>
+        <ListContacts contacts={this.props.contacts} />
+      </div>
     );
   }
 }
-
-const Contacts = (props) => {
-  return (
-    <ul>
-      {props.contacts.map((contact, id) => (
-        <div key={id} className="box">
-          <p>{contact.name}</p>
-        </div>
-      ))}
-    </ul>
-  );
-};
 
 class AddContact extends React.Component {
   constructor(props) {
@@ -48,22 +20,18 @@ class AddContact extends React.Component {
     this.textInput = React.createRef();
   }
 
-  handleSubmit = (event) => {
+  submitContact = (event) => {
     event.preventDefault();
     this.props.addContact(this.textInput.current.value);
+    this.textInput.current.value = '';
   };
 
   render() {
     return (
       <div className="box">
-        <form onSubmit={this.handleSubmit}>
-          <div className="field">
-            <label className="label">Name</label>
-            <div className="control">
-              <input className="input" type="text" ref={this.textInput} placeholder="John Doe" />
-            </div>
-          </div>
-          <button type="submit" className="button">
+        <form onSubmit={this.submitContact}>
+          <input className="form-control" ref={this.textInput} />
+          <button className="btn btn-primary mt-3" type="submit">
             Add Contact
           </button>
         </form>
@@ -72,11 +40,24 @@ class AddContact extends React.Component {
   }
 }
 
+const ListContacts = (props) => {
+  return (
+    <ul className="list-group mt-3">
+      {props.contacts.map((contact, id) => {
+        return (
+          <li className="list-group-item py-2" key={id}>
+            {contact}
+          </li>
+        );
+      })}
+    </ul>
+  );
+};
+
 const actions = {
   addContact: (name) => {
     return {
       type: 'ADD_CONTACT',
-      id: uuid(),
       name,
     };
   },
@@ -86,7 +67,7 @@ const reducer = (state = {}, action) => {
   switch (action.type) {
     case 'ADD_CONTACT':
       const { name } = action;
-      return [{ name }, ...state];
+      return [...state, name];
     default:
       return state;
   }
@@ -103,7 +84,7 @@ const AppContainer = connect(
   },
 )(App);
 
-const store = createStore(reducer, initialState);
+const store = createStore(reducer, [], window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
 
 export default class ContactApp extends React.Component {
   render() {
