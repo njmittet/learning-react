@@ -30,7 +30,7 @@ class AddContact extends React.Component {
     return (
       <div className="box">
         <form onSubmit={this.submitContact}>
-          <input className="form-control" ref={this.textInput} />
+          <input type="text" className="form-control" ref={this.textInput} />
           <button className="btn btn-primary mt-3" type="submit">
             Add Contact
           </button>
