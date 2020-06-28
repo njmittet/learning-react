@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import ItemInput from './components/ItemInput';
+import ItemList from './components/ItemList';
 
 class ContactApp extends Component {
   constructor(props) {
@@ -28,39 +30,17 @@ class ContactApp extends Component {
   render() {
     return (
       <div className="mt-3 container">
-        <h1>Contacts</h1>
-        <ItemInput onChange={this.handleChange} onSubmit={this.submitContact} inputValue={this.state.input} />
+        <h1>Contacts Components</h1>
+        <ItemInput
+          onChange={this.handleChange}
+          onSubmit={this.submitContact}
+          inputValue={this.state.input}
+          buttonValue="Add Contact"
+        />
         <ItemList values={this.state.contacts} />
       </div>
     );
   }
 }
-
-const ItemInput = ({ onChange, onSubmit, inputValue }) => {
-  return (
-    <div>
-      <form onSubmit={onSubmit}>
-        <input className="form-control" onChange={onChange} value={inputValue} />
-        <button className="btn btn-primary mt-3" type="submit">
-          Add Contact
-        </button>
-      </form>
-    </div>
-  );
-};
-
-const ItemList = ({ values }) => {
-  return (
-    <ul className="list-group mt-3">
-      {values.map((value, id) => {
-        return (
-          <li className="list-group-item py-2" key={id}>
-            {value}
-          </li>
-        );
-      })}
-    </ul>
-  );
-};
 
 export default ContactApp;
