@@ -1,100 +1,105 @@
 # Roadmap
 
-Task and resources are moved to the [Completed](completed.md) file when implemented or tested.
+Topics and resouces used to create and improve the [example implementations](../tutorials/README.md). The roadmap items will be removed from the list below they are completed or implemented.
 
-## Notes
+## Project Cleanup
 
-1. [Learn modern JavaScript](https://scrimba.com/g/ges6)
+Tasks for cleaning up notes and comments before continuing implementing new examples.
 
-## React Examples
+1. Rename `tutorials` to `examples`.
+2. Clean up the `examples` `README.md` files.
 
-1. Create React App: The React application from the [React + Redux notes](react-redux.md).
-2. Create React App: The React + Redux application from the [React + Redux notes](react-redux.md).
-3. Create React App: The tic-tac-toe application from the [Tutorial: Intro to React](https://reactjs.org/tutorial/tutorial.html).
+### Finalize `JavaScript Notes`
 
-## React Hooks Examples
+1. Add a `require vs. import` chapter to the [Javascript Notes](./javascript.md).
 
-1. Create React App: The Scrimba [Tic Tac Toe With React Hooks](https://reactjs.org/tutorial/tutorial.html) example, witch modifies the example from the React documentation to use [hooks](https://reactjs.org/docs/hooks-intro.html);
-2. Create React App: The React [Introducing Hooks](https://reactjs.org/docs/hooks-intro.html) tutorial.
+### Update `react-contact-components`
 
-### Toolchain
+1. Read `React Proptypes` bookmarks.
+2. Add PropTypes and DefaultProps: [Bad Jokes](https://github.com/giteden/bad-jokes).
+3. Use absolute imports: [Importing a component](https://create-react-app.dev/docs/importing-a-component).
 
-1. [Webpack Getting Started](https://webpack.js.org/guides/getting-started)
-2. [Creating a Toolchain from Scratch](https://blog.usejournal.com/creating-a-react-app-from-scratch-f3c693b84658)
+## React Lifecycle
 
-## React + Redux
+1. Update lifecycle chapter in the [React Notes](./react-redux.md).
 
-Resources used to extend the [React + Redux](react-redux.md) notes.
+## React Static Properties
 
-### React Render Props
+1. Add a React Nested Components chapter to the [React Notes](./react-redux.md).
+2. Add a Class Properties chapter to the [React Notes](./react-redux.md).
 
-1. <https://reactjs.org/docs/render-props.html>
-2. <https://www.robinwieruch.de/react-render-props/>
+## React State
 
-### Higher-Order Components
+1. Add a React State chapter to the [React Notes](./react-redux.md).
 
-1. <https://www.robinwieruch.de/react-higher-order-components>
+## React Forms
 
-### React Composition
+1. Update [react-contacts](../tutorials/react-contacts/). Display error message if contact input field is empty.
 
-1. [Your React Components Are Doing Too Much](https://medium.com/the-non-traditional-developer/your-react-components-are-doing-too-much-16e65968f419)
+## React Toolchain
 
-### React Hooks
+1. Implement [Webpack Getting Started](https://webpack.js.org/guides/getting-started).
+2. Implement [Creating a Toolchain from Scratch](https://blog.usejournal.com/creating-a-react-app-from-scratch-f3c693b84658).
 
-1. <https://www.robinwieruch.de/react-hooks/>
-2. [Scribma Learn React Hooks](https://scrimba.com/g/greacthooks)
+## React Render Props
 
-### React Context
+1. Add a Render Props chapter to the [React Notes](./react-redux.md).
 
-1. <https://www.robinwieruch.de/react-context>
+## React Higher Order Components
 
-### React Router
+1. Add a Higher Order Components chapter to the [React Notes](./react-redux.md).
 
-1. <https://reacttraining.com/react-router/>
+## React Application Architecture
 
-### React+Redux Hooks
+1. Read bookmarks, add chapter to [React Notes](./react-redux.md) or implement examples.
 
-"Hooks is not a replacement for Redux. Redux it self provides hooks that helps clean up code related to integrating React with Redux."
+## React Project Structure
 
-1. [Clean Up Redux Code with React-Redux Hooks](https://medium.com/swlh/clean-up-redux-code-with-react-redux-hooks-71587cfcf87a)
-2. [How I reduced the code in my Redux app by using Redux Hooks](https://medium.com/javascript-in-plain-english/how-i-reduced-the-amount-of-code-in-my-redux-app-by-using-redux-hooks-b19c926419ea)
+1. Read bookmarks, add chapter to [React Notes](./react-redux.md) or implement examples.
 
-## Miscellaneous
+## React Styling
 
-### Redux Toolkit
+1. Add a Styling chapter to the [React Notes](./react-redux.md), having an overview over the different styling methods.
+2. Change [react-contacts-components](../tutorials/react-contacts-components/) to use imported CSS.
+3. Add examples implementations for (the other) styling methods.
 
-1. <https://redux-starter-kit.js.org/>
-2. <https://github.com/reduxjs/redux-toolkit>
+## React Applications
 
-### React CSS
+1. Implement [Hello World - React](https://reactjs.org/docs/hello-world.html).
+2. Implement [Intro to React - Tic Tac Toe](https://reactjs.org/tutorial/tutorial.html).
+3. Clone [Bad Jokes](https://github.com/giteden/bad-jokes) and implement a version without Hooks.
+4. Implement [A movie search in React](https://scrimba.com/course/greactmovie?utm_source=newsletter&utm_medium=email&utm_campaign=greactmovie_mainlist_launch);
 
-1. [The What, Why and How of React (Styles)](https://dev.to/mangel0111/the-what-why-and-how-of-react-styles-2a0k)
-2. [Styling Practices Using React](https://medium.com/the-non-traditional-developer/styling-best-practices-using-react-c37b96b8be9c)
+## React Hooks
 
-### NextJS
+1. Add a Router chapter to the [React Notes](./react-redux.md).
+2. Implement [Learn React Hooks](https://scrimba.com/g/greacthooks).
+3. Implement [Tic Tac Toe With React Hooks](https://reactjs.org/tutorial/tutorial.html).
 
-1. <https://reactjs.org/docs/create-a-new-react-app.html#nextjs>
-2. [Learn the Redux Architecture by Creating the Minimal TODO App on top of NEXT.js](https://dev.to/saltyshiomix/learn-the-redux-architecture-by-creating-the-minimal-todo-app-on-top-of-next-js-5bpj)
-3. [The Next.js Handbook](https://www.freecodecamp.org/news/the-next-js-handbook/)
+## React Router
 
-### Scrimba
+1. Add a Router chapter to the [React Notes](./react-redux.md).
+2. Implement [Adding a Router - Create React App](https://create-react-app.dev/docs/adding-a-router).
 
-1. [Scrimba Learn React](https://scrimba.com/g/glearnreact)
-2. [The React Bootcamp](https://scrimba.com/g/greact)
+## React Backend Integration
 
-### React Examples
+1. Add a Fetching Date chapter to the [React Notes](./react-redux.md).
+2. Clone [react-contacts](../tutorials/react-contacts/) to `react-contacts-backend`, which uses `json-server` to store and serve the contacts.
+3. Clone [react-redux-contacts](../tutorials/react-redux-contacts/) to use `redux-thunk` to connect to a similar `json-server`.
 
-1. [Explore predictable and scalable state management in React with Redux](https://www.robinwieruch.de/react-redux-tutorial)
-2. [Connect React to a Database and implement User Authentication/Authorization](https://www.robinwieruch.de/complete-firebase-authentication-react-tutorial)
+## React Redux
 
-## Angular
+1. Implement [Understand Redux by building your own Store](https://toddmotto.com/redux-typescript-store).
+2. Implement a [Redux Toolkit](https://redux-toolkit.js.org/) example.
 
-1. [Build your first Angular app](https://scrimba.com/g/gyourfirstangularapp)
-2. [Getting Started with Angular: Your First App](https://angular.io/start)
+## Redux Hooks
 
-## CSS
+1. Implement [Clean Up Redux Code with React-Redux Hooks](https://medium.com/swlh/clean-up-redux-code-with-react-redux-hooks-71587cfcf87a).
 
-### Flexbox / Grid
+## Redux Toolkit
 
-1. [Learn Flexbox for free](https://scrimba.com/g/gflexbox)
-2. [Learn CSS Grid for free](https://scrimba.com/g/gflexbox)
+1. Implement a [Redux Toolkit](https://redux-toolkit.js.org/) example.
+
+## React Context
+
+1. Implement [Replacing redux with react hooks and context](https://medium.com/octopus-labs-london/replacing-redux-with-react-hooks-and-context-part-1-11b72ffdb533).
