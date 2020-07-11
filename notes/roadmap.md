@@ -1,19 +1,18 @@
 # Roadmap
 
-Topics and resouces used to create and improve the [example implementations](../tutorials/README.md). The roadmap items will be removed from the list below they are completed or implemented.
+Topics and resouces used to create and improve the [example implementations](../examples/README.md). The roadmap items will be removed from the list below they are completed or implemented.
 
 ## Project Cleanup
 
 Tasks for cleaning up notes and comments before continuing implementing new examples.
 
-1. Rename `tutorials` to `examples`.
-2. Clean up the `examples` `README.md` files.
+1. Clean up the `examples` `README.md` files.
 
 ### Finalize `JavaScript Notes`
 
 1. Add a `require vs. import` chapter to the [Javascript Notes](./javascript.md).
 
-### Update `react-contact-components`
+### Update `react-contacts-components`
 
 1. Read `React Proptypes` bookmarks.
 2. Add PropTypes and DefaultProps: [Bad Jokes](https://github.com/giteden/bad-jokes).
@@ -34,7 +33,7 @@ Tasks for cleaning up notes and comments before continuing implementing new exam
 
 ## React Forms
 
-1. Update [react-contacts](../tutorials/react-contacts/). Display error message if contact input field is empty.
+1. Update [react-contacts](../examples/react-contacts/). Display error message if contact input field is empty.
 
 ## React Toolchain
 
@@ -60,7 +59,7 @@ Tasks for cleaning up notes and comments before continuing implementing new exam
 ## React Styling
 
 1. Add a Styling chapter to the [React Notes](./react-redux.md), having an overview over the different styling methods.
-2. Change [react-contacts-components](../tutorials/react-contacts-components/) to use imported CSS.
+2. Change [react-contacts-components](../examples/react-contacts-components/) to use imported CSS.
 3. Add examples implementations for (the other) styling methods.
 
 ## React Applications
@@ -84,8 +83,8 @@ Tasks for cleaning up notes and comments before continuing implementing new exam
 ## React Backend Integration
 
 1. Add a Fetching Date chapter to the [React Notes](./react-redux.md).
-2. Clone [react-contacts](../tutorials/react-contacts/) to `react-contacts-backend`, which uses `json-server` to store and serve the contacts.
-3. Clone [react-redux-contacts](../tutorials/react-redux-contacts/) to use `redux-thunk` to connect to a similar `json-server`.
+2. Clone [react-contacts](../examples/react-contacts/) to `react-contacts-backend`, which uses `json-server` to store and serve the contacts.
+3. Clone [react-redux-contacts](../examples/react-redux-contacts/) to use `redux-thunk` to connect to a similar `json-server`.
 
 ## React Redux
 
