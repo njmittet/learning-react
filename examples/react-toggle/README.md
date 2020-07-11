@@ -4,8 +4,7 @@ This folder contains an example application built with React without JSX or any 
 
 The `package.json` provides the following scripts (listed in the order they normally would use them):
 
-1. `npm start`:  
-  Starts [http-server](https://www.npmjs.com/package/http-server) which serves the index.html file and the index.js file from the `./public` folder.
+1. `npm start`: Starts [http-server](https://www.npmjs.com/package/http-server) which serves the index.html file and the index.js file from the `./public` folder.
 
 Note that `npm install` must be runned before executing the above command.
 

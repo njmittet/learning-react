@@ -6,8 +6,6 @@ Topics and resouces used to create and improve the [example implementations](../
 
 Tasks for cleaning up notes and comments before continuing implementing new examples.
 
-1. Clean up the `examples` `README.md` files.
-
 ### Finalize `JavaScript Notes`
 
 1. Add a `require vs. import` chapter to the [Javascript Notes](./javascript.md).

@@ -1,4 +1,4 @@
-# React and Redux Notes
+# React + Redux Notes
 
 This file contains a selection of React and Redux examples created while learning from different sources.
 
