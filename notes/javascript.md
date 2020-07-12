@@ -272,7 +272,74 @@ function myFunction() {
 [Mozilla let documentation](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/let)  
 [Mozilla 'const' documentation](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/const)
 
-### Import
+### `import` vs. `require
+
+In short, `require` is an ES5 construct and goes hand in hand with `module.exports`, while `import` is an ES6 construct. ES5 is widely supported, and most JavaScript engines does not yet support ES6 and the `import` syntax. This is changing, but it's still common to rely on Babel for converting ES6 imports to CommonJS syntax under the hood. CommonJS is an (ES5) module formatting system, defining `require` and `module.exports`.
+
+One of the major improvens ES6 provides are allowing `export default`, which eases importing. Named imports are also supported, allowing for selective import of only the required components, which can save memory.
+
+Other differences worth mentioning is that CommonJS module loading is synchronous. Meaning modules are loaded and processed one by one.
+Require. Import loading can be asynchronous and will usually perform better.
+
+ES5 examples:
+
+```JS
+
+// Export single items.
+module.exports myComponent
+
+// Import the item.
+var MyComponent = require('./components');
+
+// Export multiple items, given names.
+module.exports = {
+  Foo: FirstComponent,
+  Bar: SecondComponent
+}
+
+// Because the export of multiple items are different, the import has to change.
+// the name of the variable needs to match the key of the exports object.
+var {Foo} = require('./components');
+var {Bar} = require('./components');
+
+```
+
+ES6 examples:
+
+```JS
+// Export default item.
+export default App;
+
+// Import default item.
+import App from './components'
+
+// Export non-default items.
+export class FirstComponent {}
+export class SecondComponent {}
+
+// Import non-default items.
+import {FirstComponent, SecondComponent} from './components';
+
+// Combining import of default and non-default items.
+import App, {SecondComponent} from './components';
+
+```
+
+Create React App supports `require()` and `module.exports`, but encourages usage of `import` and `export` instead.
+
+A simple intro to Javascript imports and exports
+https://medium.com/@thejasonfile/a-simple-intro-to-javascript-imports-and-exports-389dd53c3fac
+
+Stack Overflow - When should I use curly braces for ES6 import? 
+https://stackoverflow.com/questions/36795819/when-should-i-use-curly-braces-for-es6-import/36796281#36796281
+
+The difference between “require(x)” and “import x”
+https://stackoverflow.com/questions/46677752/the-difference-between-requirex-and-import-x/46677972
+
+Using Node.js require vs. ES6 import/export
+https://stackoverflow.com/questions/31354559/using-node-js-require-vs-es6-import-export
+
+### Imports
 
 The `import` statement is used to import bindings exported by another module or file.
 
@@ -286,13 +353,12 @@ The `module-name` in the below code exampels are either a relative or absolute p
 // Import the default export from a module.
 import export from 'module-name';
 
-// Import one or more not-default exports from a module.
+// Import one or more non-default exports from a module.
 import { export1, export2 } from 'module-name';
 
-// The * inserts a module into the current scope, allowing
-// usage of the module name as a namespace.
+// The * inserts a module into the current scope, allowing usage of the module name as a namespace.
 import * as myModule from 'module-name';
-myMOdule.callMyMethod();
+myModule.callMyMethod();
 
 // Imports can be renamed.
 import { longModuleName as module } from 'module.name';
@@ -300,9 +366,9 @@ import { longModuleName as module } from 'module.name';
 
 [Mozilla 'import' documentation](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import)
 
-### Export
+### Exports
 
-The `import` statement is used to import bindings exported by another module or file. The `export statement` is used to export functions, objects, or primitive values from a module so they can be used by other programs with the `import` statement. Exported modules are always in strict mode.
+While the `import` statement is used to import bindings exported by another module or file, the `export` statement is used to export such bindings (functions, objects, or primitive values) from a module so they can be used by the importing program. Exported modules are always in strict mode.
 
 There are two different types of export, `named` and `default`.
 A module can have multiple named exports but only one default export.
