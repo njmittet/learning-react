@@ -6,15 +6,10 @@ Topics and resouces used to create and improve the [example implementations](../
 
 Tasks for cleaning up notes and comments before continuing implementing new examples.
 
-### Finalize `JavaScript Notes`
-
-1. Add a `require vs. import` chapter to the [Javascript Notes](./javascript.md).
-
 ### Update `react-contacts-components`
 
-1. Read `React Proptypes` bookmarks.
+1. Use absolute imports: [Importing a component](https://create-react-app.dev/docs/importing-a-component).
 2. Add PropTypes and DefaultProps: [Bad Jokes](https://github.com/giteden/bad-jokes).
-3. Use absolute imports: [Importing a component](https://create-react-app.dev/docs/importing-a-component).
 
 ## React Lifecycle
 
