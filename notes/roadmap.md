@@ -2,18 +2,17 @@
 
 Topics and resouces used to create and improve the [example implementations](../examples/README.md). The roadmap items will be removed from the list below they are completed or implemented.
 
-## Project Cleanup
+## Notes
 
 Tasks for cleaning up notes and comments before continuing implementing new examples.
 
-### Update `react-contacts-components`
+1. Add `async iterators` chapter to the [JavaScript Notes](./javascript.md).
+2. Update lifecycle chapter in the [React Notes](./react-redux.md).
+
+## Update `react-contacts-components`
 
 1. Use absolute imports: [Importing a component](https://create-react-app.dev/docs/importing-a-component).
 2. Add PropTypes and DefaultProps: [Bad Jokes](https://github.com/giteden/bad-jokes).
-
-## React Lifecycle
-
-1. Update lifecycle chapter in the [React Notes](./react-redux.md).
 
 ## React Static Properties
 
