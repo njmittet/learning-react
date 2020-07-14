@@ -2,21 +2,18 @@
 
 Topics and resouces used to create and improve the [example implementations](../examples/README.md). The roadmap items will be removed from the list below they are completed or implemented.
 
-## Notes
-
-Tasks for cleaning up notes and comments before continuing implementing new examples.
-
-1. Add `async iterators` chapter to the [JavaScript Notes](./javascript.md).
-2. Update lifecycle chapter in the [React Notes](./react-redux.md).
-
-## Update `react-contacts-components`
-
-1. Add PropTypes and DefaultProps: [Bad Jokes](https://github.com/giteden/bad-jokes).
-
 ## React Static Properties
 
 1. Add a React Nested Components chapter to the [React Notes](./react-redux.md).
 2. Add a Class Properties chapter to the [React Notes](./react-redux.md).
+
+## React Lifecycle
+
+Tasks for cleaning up notes and comments before continuing implementing new examples.
+
+1. Update lifecycle chapter in the [React Notes](./react-redux.md) to match [UNSAFE lifecycle methods](https://reactjs.org/docs/react-component.html#unsafe_componentwillreceiveprops).
+2. Implement a React lifecycle example.
+3. Add `async iterators` chapter to the [JavaScript Notes](./javascript.md).
 
 ## React State
 
