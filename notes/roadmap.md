@@ -11,8 +11,7 @@ Tasks for cleaning up notes and comments before continuing implementing new exam
 
 ## Update `react-contacts-components`
 
-1. Use absolute imports: [Importing a component](https://create-react-app.dev/docs/importing-a-component).
-2. Add PropTypes and DefaultProps: [Bad Jokes](https://github.com/giteden/bad-jokes).
+1. Add PropTypes and DefaultProps: [Bad Jokes](https://github.com/giteden/bad-jokes).
 
 ## React Static Properties
 
