@@ -97,7 +97,7 @@ class MyComponent extends React.Component {
 React provides useful type-checking features to verify that components receive props of the correct type.
 
 ```JSX
-import React, { PropTypes } from 'react';
+import PropTypes from 'prop-types';
 
 const Items = props => {
   return <h1>Current Quantity of Items in Cart: {props.quantity}</h1>;

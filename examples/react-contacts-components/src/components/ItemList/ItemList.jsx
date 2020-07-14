@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 const ItemList = ({ values }) => {
   return (
@@ -12,6 +13,14 @@ const ItemList = ({ values }) => {
       })}
     </ul>
   );
+};
+
+ItemList.propTypes = {
+  values: PropTypes.array.isRequired,
+};
+
+ItemList.defaultProps = {
+  values: [],
 };
 
 export default ItemList;
