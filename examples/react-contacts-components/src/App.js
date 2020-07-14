@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import ItemInput from './components/ItemInput';
-import ItemList from './components/ItemList';
+import ItemInput from 'components/ItemInput';
+import ItemList from 'components/ItemList';
 
 class ContactApp extends Component {
   constructor(props) {
