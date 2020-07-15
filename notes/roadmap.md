@@ -2,10 +2,13 @@
 
 Topics and resouces used to create and improve the [example implementations](../examples/README.md). The roadmap items will be removed from the list below they are completed or implemented.
 
-## React Static Properties
+## React Nested Components
 
 1. Add a React Nested Components chapter to the [React Notes](./react-redux.md).
-2. Add a Class Properties chapter to the [React Notes](./react-redux.md).
+
+## React Class Properties
+
+1. Add a Class Properties chapter to the [React Notes](./react-redux.md).
 
 ## React Lifecycle
 
