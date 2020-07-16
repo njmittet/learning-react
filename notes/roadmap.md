@@ -6,10 +6,6 @@ Topics and resouces used to create and improve the [example implementations](../
 
 1. Add a React Nested Components chapter to the [React Notes](./react-redux.md).
 
-## React Class Properties
-
-1. Add a Class Properties chapter to the [React Notes](./react-redux.md).
-
 ## React Lifecycle
 
 Tasks for cleaning up notes and comments before continuing implementing new examples.
