@@ -113,6 +113,139 @@ Items.defaultProps = {
 };
 ```
 
+### React Class Properties
+
+Class properties are a change to JavaScript itself, and are not only helpful to React. In general, the change is to replace class functions with arrow functions, which does not have their own context. When invoked, the value of `this` will be the class instance.
+
+Without class properties:
+
+```JSX
+class MyClass {
+  action() {
+    console.log('Performed action: ' + this.value);
+  }
+
+  constructor(value) {
+    this.value = value;
+  }
+}
+
+const actionClass = new MyClass('Action');
+const actionButton = document.getElementById('actionButton');
+
+// Binding 'this' to the context belonging to the class MyClass.
+actionButton.addEventListener('click', actionClass.action.bind(actionClass));
+```
+
+With class properties:
+
+```JSX
+class MyClass {
+  action = () => {
+    console.log('Performed action:' + this.value);
+  };
+
+  constructor(value) {
+    this.value = value;
+  }
+}
+
+const actionClass = new MyClass('Action');
+const actionButton = document.getElementById('actionButton');
+
+// With class properties the bind becomes unnecessary.
+actionButton.addEventListener('click', actionClass.action);
+```
+
+If a React project are using the Babel transform `transform-class-properties`, using class properties in React allows for multiple improvements. Below is a standard React class:
+
+```JSX
+class ToggleButton extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { on: false };
+    this.toggleState = this.toggleState.bind(this);
+  }
+
+  toggleState() {
+    this.setState({ on: !this.state.on });
+  }
+
+  render() {
+    const buttonLabel = this.state.on ? 'Toggle Off' : 'Toggle On';
+    const classNames = this.state.on ? 'btn btn-success' : 'btn btn-secondary';
+
+    return (
+      <button className={classNames} onClick={this.toggleState}>
+        {buttonLabel}
+      </button>
+    );
+  }
+}
+```
+
+With class properties, the above code can be written as:
+
+```JSX
+class ToggleButton extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+
+  toggleState = () => {
+    this.setState({ on: !this.state.on });
+  };
+
+  state = { on: false };
+
+  render() {
+    const buttonLabel = this.state.on ? 'Toggle Off' : 'Toggle On';
+    const classNames = this.state.on ? 'btn btn-success' : 'btn btn-secondary';
+
+    return (
+      <button className={classNames} onClick={this.toggleState}>
+        {buttonLabel}
+      </button>
+    );
+  }
+}
+```
+
+Class properties can also be `static`, making them available on the class only, instead of the class instance, which introduces the improvement that `defaultProps` and `propTyped` can be declared as static class properies within a React component class instead of outside of the class.
+
+```JSX
+class MyComponent extends React.Component {
+  static defaultProps = { name: ['Name'] };
+  static propTypes = { name: PropTypes.string.isRequired };
+
+  render() {
+    return (
+      <div>{this.props.name}</div>
+    )
+  }
+}
+```
+
+The above code equals (and is transformed to by Babel):
+
+```JSX
+class MyComponent extends React.Component {
+  render() {
+    return (
+      <div>{this.props.name}</div>
+    )
+  }
+}
+
+ItemList.defaultProps = {
+  name: 'Name',
+};
+
+ItemList.propTypes = {
+  name: PropTypes.string.isRequired,
+};
+```
+
 ### Passing Callbacks as Props
 
 Passing handler functions to a child component allows the child component to interact with their parent component, and allows the parent component to handle the state.
@@ -546,7 +679,7 @@ const store = Redux.createStore(dataReducer, Redux.applyMiddleware(thunk));
 store.dispatch(handleAsync);
 ```
 
-## Redux with React
+## React + Redux
 
 Because Redux is not designed to work with React out of the box, it's necessary to use the `react-redux` package. It provides a for passing Redux `state` and `dispatch` to React components as props.
 
