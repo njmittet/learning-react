@@ -246,6 +246,38 @@ ItemList.propTypes = {
 };
 ```
 
+### Compund Components
+
+Compond components are static components ndefined by and nested within a parent component. They are accessible trough the parent component from the outside and they have access to the parent components state.
+
+The problem they solve is that they can abstract away complexity users of the components should not need to care about, by leaving it to the parent component. State handling is one example.
+
+Compound components can be used to create architectural pattern.
+
+In their simples form compund components only renders their input, but adds typing to the type of element to render, like the menu bar example below, which renders the provided `Item` classes.
+
+```JSX
+class MenuBar extends Component {
+  static Item = ({ children }) => children;
+
+  render() {
+    return <div>{this.props.children}</div>;
+  }
+}
+
+function App() {
+  return (
+    <div className="mt-3 container">
+      <MenuBar>
+        <MenuBar.Item>Item 1</MenuBar.Item>
+      </MenuBar>
+    </div>
+  );
+}
+```
+
+Example with access to state.
+
 ### Passing Callbacks as Props
 
 Passing handler functions to a child component allows the child component to interact with their parent component, and allows the parent component to handle the state.

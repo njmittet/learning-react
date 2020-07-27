@@ -2,9 +2,10 @@
 
 Topics and resouces used to create and improve the [example implementations](../examples/README.md). The roadmap items will be removed from the list below they are completed or implemented.
 
-## React Nested Components
+## Compound Components
 
-1. Add a React Nested Components chapter to the [React Notes](./react-redux.md).
+1. Add a Compund Components chapter to the [React Notes](./react-redux.md).
+2. Add an example by implementing a menu bar example.
 
 ## React Lifecycle
 
