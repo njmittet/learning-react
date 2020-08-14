@@ -291,6 +291,148 @@ class GetInput extends React.Component {
 }
 ```
 
+### Render Props
+
+The term `render prop` refers to a technique for sharing rendering code, state and behaviour between React components. A render prop is a function, passed as a prop, that a component uses to know what to render. This can be either HTML or another component. The function has access to the receiving components behaviour and state. In short, a component with the render prop receives a function that is used to render instead of implementing its own render logic.
+
+The Mouse component in the example belov renders an image of a cat next to the mouse pointer. The Cat component is a child of the Mouse component, making the dependency between the components explicit. Making the app render a Dog component in addition to the Cat would require either adding the Dog component to the Mouse's render method, or having two different Mouse components: MouseWithCat and MouseWithDog.
+
+```JSX
+const Cat = (props) => {
+  const state = props.state;
+  return <img src="cat.png" alt="Cat" style={{ position: 'absolute', left: state.x, top: state.y }} />;
+};
+
+class Mouse extends Component {
+  state = { x: 0, y: 0 };
+
+  handleMouseMove = (event) => {
+    console.log(event);
+    this.setState({
+      x: event.clientX,
+      y: event.clientY,
+    });
+  };
+
+  render() {
+    return (
+      <div style={{ height: '100vh' }} onMouseMove={this.handleMouseMove}>
+        <Cat state={this.state} />
+      </div>
+    );
+  }
+}
+
+const App = () => {
+  return (
+    <div>
+      <Mouse />
+    </div>
+  );
+};
+```
+
+```JSX
+// The Cat component renders an image of a cat, using the coordinates in the state provided by its props.
+const Cat = (props) => {
+  const state = props.state;
+  return <img src="cat.png" alt="Cat" style={{ position: 'absolute', left: state.x, top: state.y }} />;
+};
+
+class Mouse extends Component {
+  state = { x: 0, y: 0 };
+
+  handleMouseMove = (event) => {
+    this.setState({
+      x: event.clientX,
+      y: event.clientY,
+    });
+  };
+
+  // The Mouse component calls the provided render-prop function with it's state as argument.
+  render() {
+    return (
+      <div style={{ height: '100vh' }} onMouseMove={this.handleMouseMove}>
+        {this.props.render(this.state)}
+      </div>
+    );
+  }
+}
+
+// The App component defines the render-prop function that is provided to the Mouse component.
+const App = () => {
+  return (
+    <div>
+      <Mouse render={(state) => <Cat state={state} />} />
+    </div>
+  );
+};
+```
+
+The example below shows the advantage of using render props, as reusing the Mouse component with a different render function, does not require a change of the Mouse component.
+
+```JSX
+// A Dog component could be rendered without changing the Mouse component.
+const App = () => {
+  return (
+    <div>
+      <Mouse render={(state) => <Cat state={state} />} />
+      <Mouse render={(state) => <Dog state={state} />} />
+    </div>
+  );
+};
+```
+
+It's not necessary to use a prop named `render` to implement a render prop. Any name can be used, also the default `children` prop, which allows write the rendering function directly inside the component element since it does not have to be in the names list of props.
+
+```JSX
+class Mouse extends Component {
+  state = { x: 0, y: 0 };
+
+  handleMouseMove = (event) => {
+    this.setState({
+      x: event.clientX,
+      y: event.clientY,
+    });
+  };
+
+  render() {
+    return (
+      <div style={{ height: '100vh' }} onMouseMove={this.handleMouseMove}>
+        {this.props.children(this.state)}
+      </div>
+    );
+  }
+}
+
+export default function App() {
+  return (
+    <div>
+      <Mouse>
+        {(state) => <Cat state={state} />}
+      </Mouse>
+    </div>
+  );
+}
+```
+
+Another alternative approach would be to just add use the Cat and the Dog components as the Mouse's children, but that would not allow sharing the Mouse's state unless using anther pattern named `Compound Components`.
+
+```JSX
+export default function App() {
+  return (
+    <div>
+      <Mouse>
+        <Cat />
+        <Dog />
+      </Mouse>
+    </div>
+  );
+}
+```
+
+The code exmaples in this chapter is mostly a slightly modified version of the code found in the React [Render Props](https://reactjs.org/docs/render-props.html) documentation.
+
 ### The '&&' Logical Operator
 
 See [Logical Operators]("https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Logical_Operators") in the Mozilla Javascript Reference.
