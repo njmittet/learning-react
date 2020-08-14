@@ -184,19 +184,15 @@ class ToggleButton extends React.Component {
 }
 ```
 
-With class properties, the above code can be written as:
+Using class properties, the above code can be written as (note that the constructor is removed as it had not functionality anymore):
 
 ```JSX
 class ToggleButton extends React.Component {
-  constructor(props) {
-    super(props);
-  }
+  state = { on: false };
 
   toggleState = () => {
     this.setState({ on: !this.state.on });
   };
-
-  state = { on: false };
 
   render() {
     const buttonLabel = this.state.on ? 'Toggle Off' : 'Toggle On';
@@ -211,7 +207,7 @@ class ToggleButton extends React.Component {
 }
 ```
 
-Class properties can also be `static`, making them available on the class only, instead of the class instance, which introduces the improvement that `defaultProps` and `propTyped` can be declared as static class properies within a React component class instead of outside of the class.
+Class properties can also be `static`, making them available on the class only, instead of the class instance, which introduces the improvement that `defaultProps` and `propType` can be declared as static class properies within a React component class instead of outside of the class.
 
 ```JSX
 class MyComponent extends React.Component {

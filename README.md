@@ -13,4 +13,4 @@ See the [examples](examples/) folder for a growing set of example implementation
 
 ## Roadmap
 
-See the [Roadmap.md](notes/roadmap.md) file for what's next.
+See the [Roadmap](notes/roadmap.md) file for what's next.
