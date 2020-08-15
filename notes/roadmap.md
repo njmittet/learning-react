@@ -1,10 +1,10 @@
 # Roadmap
 
-Topics and resouces used to create and improve the [example implementations](../examples/README.md). The roadmap items will be removed from the list below they are completed or implemented.
+Topics and resouces used to create and improve the [example implementations](../examples/README.md). The The roadmap items will not necessarily implementes in the sequance they appear in in the document. Completed items will be removed from the list.
 
-## React Nested Components
+## React Compound Components
 
-1. Add a React Nested Components chapter to the [React Notes](./react-redux.md).
+1. Add a React Compound Components chapter to the [React Notes](./react-redux.md).
 
 ## React Lifecycle
 
@@ -26,10 +26,6 @@ Tasks for cleaning up notes and comments before continuing implementing new exam
 
 1. Implement [Webpack Getting Started](https://webpack.js.org/guides/getting-started).
 2. Implement [Creating a Toolchain from Scratch](https://blog.usejournal.com/creating-a-react-app-from-scratch-f3c693b84658).
-
-## React Render Props
-
-1. Add a Render Props chapter to the [React Notes](./react-redux.md).
 
 ## React Higher Order Components
 
