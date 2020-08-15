@@ -27,8 +27,7 @@ class Amount extends Component {
             Decrement
           </button>
         </div>
-        <Euro amount={this.state.amount} />
-        <Pound amount={this.state.amount} />
+        {this.props.render(this.state.amount)}
       </div>
     );
   }
@@ -37,7 +36,14 @@ class Amount extends Component {
 const App = () => (
   <div className="mt-3 container">
     <h1>Currency Converter</h1>
-    <Amount />
+    <Amount
+      render={(amount) => (
+        <div>
+          <Euro amount={amount} />
+          <Pound amount={amount} />
+        </div>
+      )}
+    />
   </div>
 );
 
