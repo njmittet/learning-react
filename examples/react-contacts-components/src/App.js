@@ -21,10 +21,10 @@ class ContactApp extends Component {
 
   submitContact(event) {
     event.preventDefault();
-    this.setState({
+    this.setState((state) => ({
       input: '',
-      contacts: [...this.state.contacts, this.state.input],
-    });
+      contacts: [...state.contacts, state.input],
+    }));
   }
 
   render() {

@@ -7,9 +7,9 @@ class ToggleButton extends React.Component {
     super(props);
 
     _defineProperty(this, "toggleState", () => {
-      this.setState({
-        on: !this.state.on
-      });
+      this.setState(state => ({
+        on: !state.on
+      }));
     });
 
     _defineProperty(this, "state", {

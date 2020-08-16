@@ -8,11 +8,11 @@ class Amount extends Component {
   state = { amount: 0 };
 
   onIncrement = () => {
-    this.setState({ amount: this.state.amount + 1 });
+    this.setState((state) => ({ amount: state.amount + 1 }));
   };
 
   onDecrement = () => {
-    this.setState({ amount: this.state.amount - 1 });
+    this.setState((state) => ({ amount: state.amount - 1 }));
   };
 
   render() {

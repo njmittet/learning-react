@@ -61,6 +61,39 @@ class MyComponent extends React.Component {
 }
 ```
 
+### Setting State
+
+React state should never be set directly, like in the example below. Setting state directly does not trigger component rendering, and the value would have a high chance of being overwritten since React sets the state asynchronous. The only place where you can assign this.state is the constructor, or when the state is set as a class property.
+
+```JSX
+onIncrement = () => (this.state.value = this.state.value + 1);
+```
+
+The correct way to set the state is to always use the  `setState()` method:
+
+```JSX
+onIncrement = () => {
+  this.setState({ value: 10 });
+};
+```
+
+React may batch multiple state updates in order to improve performance. What this means is that state updates through the `setState()` method can be asynchronous. Because of this, `this.props` and `this.state` may be updated asynchronously, hence using the previous state value to calculate the next state value should be avoided:
+
+```JSX
+// The value og this.state.value is not garuanteed.
+onIncrement = () => {
+  this.setState({ amount: this.state.amount + 1 });
+};
+```
+
+The correct way to update the state when relying on a previous state value is to use a second form of `setState()` that accepts a function rather than an object. The function receives the previous state as the first argument (and the props as the second argument) at the time the update is applied as the second argument, making the value always correct:
+
+```JSX
+  onIncrement = () => {
+    this.setState((state) => ({ amount: state.amount + 1 }));
+  };
+```
+
 ### Passing State as Props
 
 Passing state as props to a child component.

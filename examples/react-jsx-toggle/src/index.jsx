@@ -6,7 +6,7 @@ class ToggleButton extends React.Component {
   }
 
   toggleState = () => {
-    this.setState({ on: !this.state.on });
+    this.setState((state) => ({ on: !state.on }));
   };
 
   state = { on: false };
