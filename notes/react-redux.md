@@ -12,7 +12,7 @@ This file contains a selection of React and Redux examples created while learnin
 
 ### Imports
 
-Real-lift imports when using React, Redux redux-thunk and react-redux.
+Real-life imports when using React, Redux redux-thunk and react-redux.
 
 ```JSX
 import React from 'react'
@@ -317,6 +317,49 @@ class GetInput extends React.Component {
       </div>
     );
   }
+}
+```
+
+### Fragments
+
+The return from a `render()` method has to be a single top-level element, but a common pattern in React is for a component to return multiple elements (or components). `React.Fragment` enabels returning a list of children without adding an unnecceary node to the DOM:
+
+```JSX
+render() {
+  return (
+    <React.Fragment>
+      <ComponentA />
+      <ComponentB />
+    </React.Fragment>
+  );
+}
+```
+
+Wrapping the return in empty tags is the short-hand syntax for fragments:
+
+```JSX
+render() {
+  return (
+    <>
+      <ComponentA />
+      <ComponentB />
+    </>
+  );
+}
+```
+
+When returning a collection of fragments, each fragment must have a key:
+
+```JSX
+render() {
+  <div>
+    elements.map((element) => (
+    <React.Fragment key={element}>
+      <Title element={element} />
+      <Content element={element} />
+    </React.Fragment>
+    ));
+  </div>;
 }
 ```
 
