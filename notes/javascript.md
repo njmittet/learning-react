@@ -145,9 +145,9 @@ The spread syntax (`...`) allows an iterable such as an array expression or stri
 ```JS
 // Copies values from one array to another by value.
 const numbers = [1, 2, 3];
-const numbersCopy = [...numbers1];
+const numbersCopy = [...numbers];
 
-// Pushing a new value on to the source array does not changeWith the array holding the copied values.
+// Pushing a new value on to the source array does not change the array holding the copied values.
 numbers.push(4);
 
 // Expansion when calling a function.
@@ -327,17 +327,10 @@ import App, {SecondComponent} from './components';
 
 Create React App supports `require()` and `module.exports`, but encourages usage of `import` and `export` instead.
 
-A simple intro to Javascript imports and exports
-https://medium.com/@thejasonfile/a-simple-intro-to-javascript-imports-and-exports-389dd53c3fac
-
-Stack Overflow - When should I use curly braces for ES6 import? 
-https://stackoverflow.com/questions/36795819/when-should-i-use-curly-braces-for-es6-import/36796281#36796281
-
-The difference between “require(x)” and “import x”
-https://stackoverflow.com/questions/46677752/the-difference-between-requirex-and-import-x/46677972
-
-Using Node.js require vs. ES6 import/export
-https://stackoverflow.com/questions/31354559/using-node-js-require-vs-es6-import-export
+[A simple intro to Javascript imports and exports](https://medium.com/@thejasonfile/a-simple-intro-to-javascript-imports-and-exports-389dd53c3fac)  
+[Stack Overflow - When should I use curly braces for ES6 import?](https://stackoverflow.com/questions/36795819/when-should-i-use-curly-braces-for-es6-import/36796281#36796281)  
+[The difference between “require(x)” and “import x”](https://stackoverflow.com/questions/46677752/the-difference-between-requirex-and-import-x/46677972)  
+[Using Node.js require vs. ES6 import/export](https://stackoverflow.com/questions/31354559/using-node-js-require-vs-es6-import-export)
 
 ### Imports
 
