@@ -1,6 +1,6 @@
 # learning-react
 
-Notes and code written while learning React and Redux.
+Notes and code written while learning React, JavaScript and related technologies.
 
 ## Notes
 
