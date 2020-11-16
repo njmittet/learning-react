@@ -5,7 +5,7 @@ This file contains a selection of React and Redux examples created while learnin
 ## Sources
 
 [freeCodeCamp.org/React](https://www.freecodecamp.org/learn/front-end-libraries/react/)  
-[freeCodeCamp.org/Redux](freecodecamp.org/learn/front-end-libraries/redux/)  
+[freeCodeCamp.org/Redux](https://www.freecodecamp.org/learn/front-end-libraries/redux/)  
 [freeCodeCamp.org/React+Redux](https://www.freecodecamp.org/learn/front-end-libraries/react-and-redux/)  
 
 ## React

@@ -1,30 +1,30 @@
-import React, { Component } from 'react';
-import ItemInput from 'components/ItemInput';
-import ItemList from 'components/ItemList';
+import React, { Component } from 'react'
+import ItemInput from 'components/ItemInput'
+import ItemList from 'components/ItemList'
 
 class ContactApp extends Component {
   constructor(props) {
-    super(props);
+    super(props)
     this.state = {
       input: '',
       contacts: [],
-    };
-    this.handleChange = this.handleChange.bind(this);
-    this.submitContact = this.submitContact.bind(this);
+    }
+    this.handleChange = this.handleChange.bind(this)
+    this.submitContact = this.submitContact.bind(this)
   }
 
   handleChange(event) {
     this.setState({
       input: event.target.value,
-    });
+    })
   }
 
   submitContact(event) {
-    event.preventDefault();
+    event.preventDefault()
     this.setState((state) => ({
       input: '',
       contacts: [...state.contacts, state.input],
-    }));
+    }))
   }
 
   render() {
@@ -35,12 +35,12 @@ class ContactApp extends Component {
           onChange={this.handleChange}
           onSubmit={this.submitContact}
           inputValue={this.state.input}
-          buttonValue="Add Contact"
+          buttonValue="Add Contacts"
         />
         <ItemList values={this.state.contacts} />
       </div>
-    );
+    )
   }
 }
 
-export default ContactApp;
+export default ContactApp

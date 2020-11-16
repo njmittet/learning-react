@@ -1,4 +1,4 @@
-# react-jsx
+# react-toggle-jsx
 
 This folder contains an example application using React with JSX, and using the JavaScript preprocessor Babel to compile the JSX to JavaScript, in the simplest possible way. The example does not provide a complete development- or production build setup.
 
